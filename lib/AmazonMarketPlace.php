@@ -30,6 +30,6 @@ class AmazonMarketPlace
     ];
 
     public static function id($site) {
-        return static::$MarketPlaceMap[$site] ?? null;
+        return !empty(static::$MarketPlaceMap[$site]) ? static::$MarketPlaceMap[$site] : null;
     }
 }
