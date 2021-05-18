@@ -27,7 +27,7 @@ trait SellingPartnerApiRequest
         array $headerParams,
         string $method,
         $httpBody
-    ): Request {
+    ) {
         if (null != $formParams) {
             ksort($formParams);
         }
@@ -98,7 +98,7 @@ trait SellingPartnerApiRequest
     /**
      * @throws ApiException
      */
-    private function sendRequest(Request $request, string $returnType): array
+    private function sendRequest(Request $request, string $returnType)
     {
         try {
             $options = $this->createHttpClientOption();
@@ -159,7 +159,7 @@ trait SellingPartnerApiRequest
      *
      * @return array of http client options
      */
-    protected function createHttpClientOption(): array
+    protected function createHttpClientOption()
     {
         $options = [];
         if ($this->config->getDebug()) {

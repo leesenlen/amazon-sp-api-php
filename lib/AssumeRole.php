@@ -24,17 +24,17 @@ class AssumeRole
         $this->sessionToken = $sessionToken;
     }
 
-    public function getAccessKeyId(): string
+    public function getAccessKeyId()
     {
         return $this->accessKeyId;
     }
 
-    public function getSecretAccessKey(): string
+    public function getSecretAccessKey()
     {
         return $this->secretAccessKey;
     }
 
-    public function getSessionToken(): string
+    public function getSessionToken()
     {
         return $this->sessionToken;
     }

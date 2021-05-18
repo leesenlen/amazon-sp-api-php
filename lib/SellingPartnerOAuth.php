@@ -15,7 +15,7 @@ class SellingPartnerOAuth
      *
      * @throws GuzzleException
      */
-    public static function getAccessTokenFromRefreshToken($refreshToken, $clientId, $clientSecret): ?string
+    public static function getAccessTokenFromRefreshToken($refreshToken, $clientId, $clientSecret)
     {
         $client = new Client();
         $params = [
@@ -49,7 +49,7 @@ class SellingPartnerOAuth
         string $clientId,
         string $clientSecret,
         string $redirectUri
-    ): ?string {
+    ) {
         $client = new Client();
         $params = [
             'grant_type' => 'authorization_code',

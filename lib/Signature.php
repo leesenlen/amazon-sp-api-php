@@ -37,7 +37,7 @@ class Signature
         $uri = '',
         $queryString = '',
         $data = []
-    ): array {
+    ) {
         return self::calculateSignatureForService(
             $host,
             $method,
@@ -67,7 +67,7 @@ class Signature
         $accessToken,
         $securityToken,
         $userAgent
-    ): array {
+    ) {
         $terminationString = 'aws4_request';
         $algorithm = 'AWS4-HMAC-SHA256';
         $amzdate = gmdate('Ymd\THis\Z');
