@@ -19,6 +19,11 @@ use GuzzleHttp\Utils;
  */
 trait SellingPartnerApiRequest
 {
+
+    protected $defaultHttpOptions = [
+        'timeout' => 20,
+    ];
+
     private function generateRequest(
         bool $multipart,
         array $formParams,
@@ -95,6 +100,20 @@ trait SellingPartnerApiRequest
         );
     }
 
+    public function setDefaultHttpOptions($options)
+    {
+        foreach ($options as $key => $option) {
+            $this->defaultHttpOptions[$key] = $option;
+        }
+
+        return $this;
+    }
+
+    public function getDefaultHttpOptions()
+    {
+        return $this->defaultHttpOptions;
+    }
+
     /**
      * @throws ApiException
      */
@@ -168,6 +187,8 @@ trait SellingPartnerApiRequest
                 throw new \RuntimeException('Failed to open the debug file: '.$this->config->getDebugFile());
             }
         }
+
+        $options = array_merge($options, $this->defaultHttpOptions);
 
         return $options;
     }
