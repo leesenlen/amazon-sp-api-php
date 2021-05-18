@@ -20,12 +20,12 @@ use GuzzleHttp\Utils;
 trait SellingPartnerApiRequest
 {
     private function generateRequest(
-        bool $multipart,
+        $multipart,
         array $formParams,
         array $queryParams,
-        string $resourcePath,
+         $resourcePath,
         array $headerParams,
-        string $method,
+         $method,
         $httpBody
     ) {
         if (null != $formParams) {

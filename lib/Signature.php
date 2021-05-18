@@ -32,8 +32,8 @@ class Signature
      */
     public static function calculateSignature(
         Configuration $config,
-        string $host,
-        string $method,
+        $host,
+        $method,
         $uri = '',
         $queryString = '',
         $data = []
@@ -55,15 +55,15 @@ class Signature
     }
 
     public static function calculateSignatureForService(
-        string $host,
-        string $method,
+        $host,
+        $method,
         $uri,
         $queryString,
         $data,
-        string $service,
-        string $accessKey,
-        string $secretKey,
-        string $region,
+        $service,
+        $accessKey,
+        $secretKey,
+        $region,
         $accessToken,
         $securityToken,
         $userAgent

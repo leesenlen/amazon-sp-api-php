@@ -45,10 +45,10 @@ class SellingPartnerOAuth
      * @throws SellingPartnerOAuthException
      */
     public static function getRefreshTokenFromLwaAuthorizationCode(
-        string $lwaAuthorizationCode,
-        string $clientId,
-        string $clientSecret,
-        string $redirectUri
+        $lwaAuthorizationCode,
+        $clientId,
+        $clientSecret,
+        $redirectUri
     ) {
         $client = new Client();
         $params = [
