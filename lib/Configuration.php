@@ -110,7 +110,7 @@ class Configuration
      *
      * @deprecated use setSecurityToken(), setAccessKey(), setSecretKey() instead
      */
-    public function setApiKey(string $apiKeyIdentifier, string $key)
+    public function setApiKey($apiKeyIdentifier, $key)
     {
         $this->apiKeys[$apiKeyIdentifier] = $key;
         if ('accessKey' == $apiKeyIdentifier) {
@@ -394,7 +394,7 @@ class Configuration
         return $this->securityToken;
     }
 
-    public function setSecurityToken(string $securityToken)
+    public function setSecurityToken($securityToken)
     {
         $this->securityToken = $securityToken;
     }
@@ -404,7 +404,7 @@ class Configuration
         return $this->accessKey;
     }
 
-    public function setAccessKey(string $accessKey)
+    public function setAccessKey($accessKey)
     {
         $this->accessKey = $accessKey;
     }
@@ -414,7 +414,7 @@ class Configuration
         return $this->secretKey;
     }
 
-    public function setSecretKey(string $secretKey)
+    public function setSecretKey($secretKey)
     {
         $this->secretKey = $secretKey;
     }
@@ -424,7 +424,7 @@ class Configuration
         return $this->region;
     }
 
-    public function setRegion(string $region)
+    public function setRegion($region)
     {
         $this->region = $region;
     }

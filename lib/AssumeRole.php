@@ -17,7 +17,7 @@ class AssumeRole
     /**
      * AssumeRole constructor.
      */
-    public function __construct(string $accessKeyId, string $secretAccessKey, string $sessionToken)
+    public function __construct($accessKeyId, $secretAccessKey, $sessionToken)
     {
         $this->accessKeyId = $accessKeyId;
         $this->secretAccessKey = $secretAccessKey;
@@ -48,7 +48,7 @@ class AssumeRole
      *
      * Thanks to
      */
-    public static function assume(string $region, string $accessKey, string $secretKey, string $roleArn, int $durationSeconds = 3600): AssumeRole
+    public static function assume($region, $accessKey, $secretKey, $roleArn, $durationSeconds = 3600): AssumeRole
     {
         $requestOptions = [
             'headers' => [

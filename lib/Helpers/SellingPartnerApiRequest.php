@@ -98,7 +98,7 @@ trait SellingPartnerApiRequest
     /**
      * @throws ApiException
      */
-    private function sendRequest(Request $request, string $returnType)
+    private function sendRequest(Request $request, $returnType)
     {
         try {
             $options = $this->createHttpClientOption();
@@ -177,7 +177,7 @@ trait SellingPartnerApiRequest
      *
      * @return mixed
      */
-    private function sendRequestAsync(Request $request, string $returnType)
+    private function sendRequestAsync(Request $request, $returnType)
     {
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
