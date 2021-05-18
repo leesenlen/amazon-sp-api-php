@@ -19,6 +19,10 @@ use GuzzleHttp\Utils;
  */
 trait SellingPartnerApiRequest
 {
+    protected $defaultHttpOptions = [
+        'timeout' => 20,
+    ];
+
     private function generateRequest(
         $multipart,
         array $formParams,
@@ -95,6 +99,20 @@ trait SellingPartnerApiRequest
         );
     }
 
+    public function setDefaultHttpOptions($options)
+    {
+        foreach ($options as $key => $option) {
+            $this->defaultHttpOptions[$key] = $option;
+        }
+
+        return $this;
+    }
+
+    public function getDefaultHttpOptions()
+    {
+        return $this->defaultHttpOptions;
+    }
+
     /**
      * @throws ApiException
      */
@@ -169,6 +187,8 @@ trait SellingPartnerApiRequest
             }
         }
 
+        $options = array_merge($options, $this->defaultHttpOptions);
+        
         return $options;
     }
 
