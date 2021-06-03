@@ -1,6 +1,6 @@
 <?php
 
-namespace ClouSale\AmazonSellingPartnerAPI\Documents;
+namespace ClouSale\AmazonSellingPartnerAPI\Documents\Exceptions;
 
 use Exception;
 
