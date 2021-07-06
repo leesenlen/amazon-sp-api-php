@@ -137,8 +137,6 @@ trait SellingPartnerApiRequest
             } else {
                 $content = $responseBody->getContents();
                 if (!in_array($returnType, ['string', 'integer', 'bool'])) {
-                    $content = str_replace('"DeemedResellerCategory": IOSS', '"DeemedResellerCategory": "IOSS"', $content);
-                    $content = str_replace('"DeemedResellerCategory": UOSS', '"DeemedResellerCategory": "UOSS"', $content);
                     $content = json_decode($content);
                 }
             }
