@@ -20,6 +20,7 @@ use ClouSale\AmazonSellingPartnerAPI\Configuration;
 use ClouSale\AmazonSellingPartnerAPI\HeaderSelector;
 use ClouSale\AmazonSellingPartnerAPI\Helpers\SellingPartnerApiRequest;
 use ClouSale\AmazonSellingPartnerAPI\Models\Catalog\GetCatalogItemResponse;
+use ClouSale\AmazonSellingPartnerAPI\Models\Catalog\GetCatalogNewItemResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ListCatalogCategoriesResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ListCatalogItemsResponse;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
@@ -173,6 +174,76 @@ class CatalogApi
             $queryParams['MarketplaceId'] = ObjectSerializer::toQueryValue($marketplace_id);
         }
 
+        // path params
+        if (null !== $asin) {
+            $resourcePath = str_replace(
+                '{'.'asin'.'}',
+                ObjectSerializer::toPathValue($asin),
+                $resourcePath
+            );
+        }
+
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'GET', $httpBody);
+    }
+
+    public function getNewCatalogItem($marketplace_id, $asin, $includedData)
+    {
+        list($response) = $this->getNewCatalogItemWithHttpInfo($marketplace_id, $asin, $includedData);
+
+        return $response;
+    }
+
+    /**
+     * Operation getCatalogItemWithHttpInfo.
+     *
+     * @param string $marketplace_id A marketplace identifier. Specifies the marketplace for the item. (required)
+     * @param string $asin           The Amazon Standard Identification Number (ASIN) of the item. (required)
+     *
+     * @throws ApiException             on non-2xx response
+     * @throws InvalidArgumentException
+     *
+     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\GetCatalogNewItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getNewCatalogItemWithHttpInfo($marketplace_id, $asin, $includedData)
+    {
+        $request = $this->getNewCatalogItemRequest($marketplace_id, $asin, $includedData);
+
+        return $this->sendRequest($request, GetCatalogNewItemResponse::class);
+    }
+    /**
+     * Create request for operation 'getCatalogItem'.
+     *
+     * @param string $marketplace_id A marketplace identifier. Specifies the marketplace for the item. (required)
+     * @param string $asin           The Amazon Standard Identification Number (ASIN) of the item. (required)
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getNewCatalogItemRequest($marketplace_id, $asin, $includedData)
+    {
+        // verify the required parameter 'marketplace_id' is set
+        if (null === $marketplace_id || (is_array($marketplace_id) && 0 === count($marketplace_id))) {
+            throw new InvalidArgumentException('Missing the required parameter $marketplace_id when calling getCatalogItem');
+        }
+        // verify the required parameter 'asin' is set
+        if (null === $asin || (is_array($asin) && 0 === count($asin))) {
+            throw new InvalidArgumentException('Missing the required parameter $asin when calling getCatalogItem');
+        }
+
+        $resourcePath = '/catalog/2020-12-01/items/{asin}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (null !== $marketplace_id) {
+            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplace_id);
+        }
+        //$queryParams['includedData'] = 'identifiers,variations,attributes,images,productTypes,salesRanks,summaries';
+        $queryParams['includedData'] = $includedData;
         // path params
         if (null !== $asin) {
             $resourcePath = str_replace(
