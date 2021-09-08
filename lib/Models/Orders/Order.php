@@ -80,7 +80,14 @@ class Order implements ModelInterface, ArrayAccess
 'is_estimated_ship_date_set' => 'bool',
 'is_sold_by_ab' => 'bool',
 'assigned_ship_from_location_address' => '\ClouSale\AmazonSellingPartnerAPI\Models\Orders\Address',
-'fulfillment_instruction' => '\ClouSale\AmazonSellingPartnerAPI\Models\Orders\FulfillmentInstruction',    ];
+'fulfillment_instruction' => '\ClouSale\AmazonSellingPartnerAPI\Models\Orders\FulfillmentInstruction',
+'default_ship_from_location_address' => '\ClouSale\AmazonSellingPartnerAPI\Models\Orders\Address',
+'is_ispu' => 'bool',
+'marketplace_tax_info' => '\ClouSale\AmazonSellingPartnerAPI\Models\Orders\MarketplaceTaxInfo',
+'seller_display_name' => 'string',
+'shipping_address' => '\ClouSale\AmazonSellingPartnerAPI\Models\Orders\Address',
+'buyer_info' => '\ClouSale\AmazonSellingPartnerAPI\Models\Orders\OrderBuyerInfo',
+];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -122,7 +129,14 @@ class Order implements ModelInterface, ArrayAccess
 'is_estimated_ship_date_set' => null,
 'is_sold_by_ab' => null,
 'assigned_ship_from_location_address' => null,
-'fulfillment_instruction' => null,    ];
+'fulfillment_instruction' => null,
+'default_ship_from_location_address' => null,
+'is_ispu' => null,
+'marketplace_tax_info' => null,
+'seller_display_name' => null,
+'shipping_address' => null,
+'buyer_info' => null,
+];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -185,7 +199,14 @@ class Order implements ModelInterface, ArrayAccess
 'is_estimated_ship_date_set' => 'IsEstimatedShipDateSet',
 'is_sold_by_ab' => 'IsSoldByAB',
 'assigned_ship_from_location_address' => 'AssignedShipFromLocationAddress',
-'fulfillment_instruction' => 'FulfillmentInstruction',    ];
+'fulfillment_instruction' => 'FulfillmentInstruction',
+'default_ship_from_location_address' => 'DefaultShipFromLocationAddress',
+'is_ispu' => 'IsISPU',
+'marketplace_tax_info' => 'MarketplaceTaxInfo',
+'seller_display_name' => 'SellerDisplayName',
+'shipping_address' => 'ShippingAddress',
+'buyer_info' => 'BuyerInfo',
+];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -227,7 +248,14 @@ class Order implements ModelInterface, ArrayAccess
 'is_estimated_ship_date_set' => 'setIsEstimatedShipDateSet',
 'is_sold_by_ab' => 'setIsSoldByAb',
 'assigned_ship_from_location_address' => 'setAssignedShipFromLocationAddress',
-'fulfillment_instruction' => 'setFulfillmentInstruction',    ];
+'fulfillment_instruction' => 'setFulfillmentInstruction',
+'default_ship_from_location_address' => 'setDefaultShipFromLocationAddress',
+'is_ispu' => 'setIsISPU',
+'marketplace_tax_info' => 'setMarketplaceTaxInfo',
+'seller_display_name' => 'setSellerDisplayName',
+'shipping_address' => 'setShippingAddress',
+'buyer_info' => 'setBuyerInfo',
+];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -269,7 +297,14 @@ class Order implements ModelInterface, ArrayAccess
 'is_estimated_ship_date_set' => 'getIsEstimatedShipDateSet',
 'is_sold_by_ab' => 'getIsSoldByAb',
 'assigned_ship_from_location_address' => 'getAssignedShipFromLocationAddress',
-'fulfillment_instruction' => 'getFulfillmentInstruction',    ];
+'fulfillment_instruction' => 'getFulfillmentInstruction',
+'default_ship_from_location_address' => 'getDefaultShipFromLocationAddress',
+'is_ispu' => 'getIsISPU',
+'marketplace_tax_info' => 'getMarketplaceTaxInfo',
+'seller_display_name' => 'getSellerDisplayName',
+'shipping_address' => 'getShippingAddress',
+'buyer_info' => 'getBuyerInfo',
+];
 
     /**
      * Array of attributes where the key is the local name,
@@ -1004,6 +1039,81 @@ self::ORDER_TYPE_SOURCING_ON_DEMAND_ORDER,        ];
         return $this;
     }
 
+
+    public function setDefaultShipFromLocationAddress($default_ship_from_location_address)
+    {
+        $this->container['default_ship_from_location_address'] = $default_ship_from_location_address;
+
+        return $this;
+    }
+
+    public function getDefaultShipFromLocationAddress()
+    {
+        return $this->container['default_ship_from_location_address'];
+    }
+
+
+    public function setIsISPU($is_ispu)
+    {
+        $this->container['is_ispu'] = $is_ispu;
+
+        return $this;
+    }
+
+    public function getIsISPU()
+    {
+        return $this->container['is_ispu'];
+    }
+
+    public function setMarketplaceTaxInfo($marketplace_tax_info)
+    {
+        $this->container['marketplace_tax_info'] = $marketplace_tax_info;
+
+        return $this;
+    }
+
+    public function getMarketplaceTaxInfo()
+    {
+        return $this->container['marketplace_tax_info'];
+    }
+
+    public function setSellerDisplayName($seller_display_name)
+    {
+        $this->container['seller_display_name'] = $seller_display_name;
+
+        return $this;
+    }
+
+    public function getSellerDisplayName()
+    {
+        return $this->container['seller_display_name'];
+    }
+
+
+    public function setShippingAddress($shipping_address)
+    {
+        $this->container['shipping_address'] = $shipping_address;
+
+        return $this;
+    }
+
+    public function getShippingAddress()
+    {
+        return $this->container['shipping_address'];
+    }
+
+    public function setBuyerInfo($buyer_info)
+    {
+        $this->container['buyer_info'] = $buyer_info;
+
+        return $this;
+    }
+
+    public function getBuyerInfo()
+    {
+        return $this->container['buyer_info'];
+    }
+
     /**
      * Gets earliest_ship_date.
      *
@@ -1363,7 +1473,7 @@ self::ORDER_TYPE_SOURCING_ON_DEMAND_ORDER,        ];
 
         return $this;
     }
-
+ 
     /**
      * Returns true if offset exists. False otherwise.
      *
