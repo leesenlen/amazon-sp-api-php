@@ -474,6 +474,12 @@ self::ORDER_TYPE_SOURCING_ON_DEMAND_ORDER,        ];
         $this->container['is_sold_by_ab'] = isset($data['is_sold_by_ab']) ? $data['is_sold_by_ab'] : null;
         $this->container['assigned_ship_from_location_address'] = isset($data['assigned_ship_from_location_address']) ? $data['assigned_ship_from_location_address'] : null;
         $this->container['fulfillment_instruction'] = isset($data['fulfillment_instruction']) ? $data['fulfillment_instruction'] : null;
+        $this->container['default_ship_from_location_address'] = isset($data['default_ship_from_location_address']) ? $data['default_ship_from_location_address'] : null;
+        $this->container['is_ispu'] = isset($data['is_ispu']) ? $data['is_ispu'] : null;
+        $this->container['marketplace_tax_info'] = isset($data['marketplace_tax_info']) ? $data['marketplace_tax_info'] : null;
+        $this->container['seller_display_name'] = isset($data['seller_display_name']) ? $data['seller_display_name'] : null;
+        $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
+        $this->container['buyer_info'] = isset($data['buyer_info']) ? $data['buyer_info'] : null;
     }
 
     /**
