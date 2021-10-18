@@ -75,7 +75,7 @@ class Order implements ModelInterface, ArrayAccess
 'is_premium_order' => 'bool',
 'is_global_express_enabled' => 'bool',
 'replaced_order_id' => 'string',
-'is_replacement_order' => 'bool',
+'is_replacement_order' => 'string',
 'promise_response_due_date' => 'string',
 'is_estimated_ship_date_set' => 'bool',
 'is_sold_by_ab' => 'bool',
