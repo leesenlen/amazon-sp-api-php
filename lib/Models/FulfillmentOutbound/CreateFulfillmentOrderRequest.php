@@ -638,8 +638,6 @@ class CreateFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets items.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\CreateFulfillmentOrderItemList $items items
-     *
      * @return $this
      */
     public function setItems($items)
