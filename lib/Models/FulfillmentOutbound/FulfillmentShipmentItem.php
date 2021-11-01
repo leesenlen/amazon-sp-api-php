@@ -48,7 +48,7 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'seller_sku' => 'string',
 'seller_fulfillment_order_item_id' => 'string',
-'quantity' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Quantity',
+'quantity' => 'int',
 'package_number' => 'int',
 'serial_number' => 'string',    ];
 
@@ -60,7 +60,7 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'seller_sku' => null,
 'seller_fulfillment_order_item_id' => null,
-'quantity' => null,
+'quantity' => 'int32',
 'package_number' => 'int32',
 'serial_number' => null,    ];
 
