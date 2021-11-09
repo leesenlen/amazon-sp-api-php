@@ -55,8 +55,8 @@ class FulfillmentOrderItem implements ModelInterface, ArrayAccess
 'order_item_disposition' => 'string',
 'cancelled_quantity' => 'int',
 'unfulfillable_quantity' => 'int',
-'estimated_ship_date' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Timestamp',
-'estimated_arrival_date' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Timestamp',
+'estimated_ship_date' => 'string',
+'estimated_arrival_date' => 'string',
 'per_unit_price' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Money',
 'per_unit_tax' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Money',
 'per_unit_declared_value' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Money',    ];

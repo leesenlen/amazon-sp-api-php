@@ -49,7 +49,7 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess
         'package_number' => 'int',
 'carrier_code' => 'string',
 'tracking_number' => 'string',
-'estimated_arrival_date' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Timestamp',    ];
+'estimated_arrival_date' => 'string',    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
