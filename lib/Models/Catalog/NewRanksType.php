@@ -1,6 +1,6 @@
 <?php
 /**
- * GetCatalogItemResponse.
+ * Image.
  *
  * PHP version 5
  *
@@ -22,11 +22,14 @@ use ClouSale\AmazonSellingPartnerAPI\Models\ModelInterface;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
- * GetCatalogItemResponse Class Doc Comment.
+ * Image Class Doc Comment.
+ *
+
+ * @description The image attribute of the item.
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class GetCatalogNewItemResponse extends Categories implements ModelInterface, ArrayAccess
+class NewRanksType extends Categories implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -35,7 +38,7 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      *
      * @var string
      */
-    protected static $swaggerModelName = 'GetCatalogNewItemResponse';
+    protected static $swaggerModelName = 'NewRanksType';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -43,13 +46,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'asin' => 'string',
-        'attributes'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewAttributes',
-        'variations'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewVariationsList',
-        'summaries' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\SummariesList',
-        'images' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ImagesList',
-        'ranks' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\RanksList',
-        'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList',    ];
+        'title'=>'string',
+        'link' => 'string',
+        'value' => 'integer',   ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -57,13 +56,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'asin' => null,
-        'attributes'=>null,
-        'variations'=>null,
-        'summaries'=>null,
-        'images'=>null,
-        'ranks'=>null,
-        'errors' => null,    ];
+        'title'=>null,
+        'link' => null,
+        'value' => null,];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -92,13 +87,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'asin' => 'asin',
-        'attributes'=>'attributes',
-        'variations'=>'variations',
-        'summaries'=>'summaries',
-        'images'=>'images',
-        'ranks'=>'ranks',
-        'errors' => 'errors',    ];
+        'title'=>'title',
+        'link' => 'link',
+        'value' => 'value',  ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -106,13 +97,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'asin' => 'setAsin',
-        'attributes'=>'setAttributes',
-        'variations'=>'setVariations',
-        'summaries'=>'setSummaries',
-        'images'=>'setImages',
-        'ranks'=>'setRanks',
-        'errors' => 'setErrors',    ];
+        'title' => 'setTitle',
+        'link' => 'setLink',
+        'value' => 'setValue',    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -120,13 +107,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'asin' => 'getAsin',
-        'attributes'=>'getAttributes',
-        'variations'=>'getVariations',
-        'summaries'=>'getSummaries',
-        'images'=>'getImages',
-        'ranks'=>'setRanks',
-        'errors' => 'getErrors',    ];
+        'title' => 'getTitle',
+        'link' => 'getLink',
+        'value' => 'getValue',   ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -184,13 +167,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->container['asin'] = isset($data['asin']) ? $data['asin'] : null;
-        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['variations'] = isset($data['variations']) ? $data['variations'] : null;
-        $this->container['summaries'] = isset($data['summaries']) ? $data['summaries'] : null;
-        $this->container['images'] = isset($data['images']) ? $data['images'] : null;
-        $this->container['ranks'] = isset($data['ranks']) ? $data['ranks'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -217,173 +196,76 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     }
 
     /**
-     * Gets Asin.
+     * Gets url.
      *
      * @return string
      */
-    public function getAsin()
+    public function getLink()
     {
-        return $this->container['asin'];
+        return $this->container['link'];
     }
 
     /**
-     * Sets color.
+     * Sets url.
      *
-     * @param string $color the color variation of the item
+     * @param string $url the image URL attribute of the item
      *
      * @return $this
      */
-    public function setAsin($asin)
+    public function setLink($link)
     {
-        $this->container['asin'] = $asin;
+        $this->container['link'] = $link;
 
         return $this;
     }
     /**
-     * Gets attributes.
-     *
-     * @return obj
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes.
-     *
-     * @param string $attributes the attributes variation of the item
-     *
-     * @return $this
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-     /**
-     * Gets variations.
-     *
-     * @return obj
-     */
-    public function getVariations()
-    {
-        return $this->container['variations'];
-    }
-
-    /**
-     * Sets variations.
-     *
-     * @param string $variations the variations variation of the item
-     *
-     * @return $this
-     */
-    public function setVariations($variations)
-    {
-        $this->container['variations'] = $variations;
-
-        return $this;
-    }
-
-    /**
-     * Gets summaries.
+     * Gets title.
      *
      * @return string
      */
-    public function getSummaries()
+    public function getTitle()
     {
-        return $this->container['summaries'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets summaries.
+     * Sets title.
      *
-     * @param string $summaries the summaries variation of the item
+     * @param string $title the  title attribute of the item
      *
      * @return $this
      */
-    public function setSummaries($summaries)
+    public function setTitle($title)
     {
-        $this->container['summaries'] = $summaries;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets images.
+     * Gets value.
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\DecimalWithUnits
      */
-    public function getImages()
+    public function getValue()
     {
-        return $this->container['images'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets images.
+     * Sets value.
      *
-     * @param string images the images of the item
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\DecimalWithUnits $value
      *
      * @return $this
      */
-    public function setImages($images)
+    public function setValue($value)
     {
-        $this->container['images'] = $images;
+        $this->container['value'] = $value;
 
         return $this;
     }
-
-    /**
-     * Gets ranks.
-     *
-     * @return string
-     */
-    public function getRanks()
-    {
-        return $this->container['ranks'];
-    }
-
-    /**
-     * Sets ranks.
-     *
-     * @param string ranks the ranks of the item
-     *
-     * @return $this
-     */
-    public function setRanks($ranks)
-    {
-        $this->container['ranks'] = $ranks;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets errors.
-     *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors.
-     *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList $errors errors
-     *
-     * @return $this
-     */
-    public function setErrors($errors)
-    {
-        $this->container['errors'] = $errors;
-
-        return $this;
-    }
-
+    
     /**
      * Returns true if offset exists. False otherwise.
      *

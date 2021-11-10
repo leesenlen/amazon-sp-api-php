@@ -1,6 +1,6 @@
 <?php
 /**
- * GetCatalogItemResponse.
+ * NewVariationsListType.
  *
  * PHP version 5
  *
@@ -22,11 +22,14 @@ use ClouSale\AmazonSellingPartnerAPI\Models\ModelInterface;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
- * GetCatalogItemResponse Class Doc Comment.
+ * NewVariationsListType Class Doc Comment.
+ *
+
+ * @description Specific variations of the item.
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class GetCatalogNewItemResponse extends Categories implements ModelInterface, ArrayAccess
+class RanksListType extends Categories implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -35,7 +38,7 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      *
      * @var string
      */
-    protected static $swaggerModelName = 'GetCatalogNewItemResponse';
+    protected static $swaggerModelName = 'RanksListType';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -43,13 +46,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'asin' => 'string',
-        'attributes'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewAttributes',
-        'variations'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewVariationsList',
-        'summaries' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\SummariesList',
-        'images' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ImagesList',
-        'ranks' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\RanksList',
-        'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList',    ];
+        'marketplaceId' => 'string',
+        'ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewRanks',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -57,13 +56,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'asin' => null,
-        'attributes'=>null,
-        'variations'=>null,
-        'summaries'=>null,
-        'images'=>null,
-        'ranks'=>null,
-        'errors' => null,    ];
+        'marketplaceId' => null,
+        'ranks' => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -92,13 +87,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'asin' => 'asin',
-        'attributes'=>'attributes',
-        'variations'=>'variations',
-        'summaries'=>'summaries',
-        'images'=>'images',
-        'ranks'=>'ranks',
-        'errors' => 'errors',    ];
+        'marketplaceId' => 'marketplaceId',
+        'ranks' => 'ranks',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -106,13 +97,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'asin' => 'setAsin',
-        'attributes'=>'setAttributes',
-        'variations'=>'setVariations',
-        'summaries'=>'setSummaries',
-        'images'=>'setImages',
-        'ranks'=>'setRanks',
-        'errors' => 'setErrors',    ];
+        'marketplaceId' => 'setMarketplaceId',
+        'ranks' => 'setRanks',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -120,13 +107,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'asin' => 'getAsin',
-        'attributes'=>'getAttributes',
-        'variations'=>'getVariations',
-        'summaries'=>'getSummaries',
-        'images'=>'getImages',
-        'ranks'=>'setRanks',
-        'errors' => 'getErrors',    ];
+        'ranks' => 'getRanks',
+        'marketplaceId' => 'getMarketplaceId',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -184,13 +167,8 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->container['asin'] = isset($data['asin']) ? $data['asin'] : null;
-        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['variations'] = isset($data['variations']) ? $data['variations'] : null;
-        $this->container['summaries'] = isset($data['summaries']) ? $data['summaries'] : null;
-        $this->container['images'] = isset($data['images']) ? $data['images'] : null;
         $this->container['ranks'] = isset($data['ranks']) ? $data['ranks'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
     }
 
     /**
@@ -217,124 +195,6 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     }
 
     /**
-     * Gets Asin.
-     *
-     * @return string
-     */
-    public function getAsin()
-    {
-        return $this->container['asin'];
-    }
-
-    /**
-     * Sets color.
-     *
-     * @param string $color the color variation of the item
-     *
-     * @return $this
-     */
-    public function setAsin($asin)
-    {
-        $this->container['asin'] = $asin;
-
-        return $this;
-    }
-    /**
-     * Gets attributes.
-     *
-     * @return obj
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes.
-     *
-     * @param string $attributes the attributes variation of the item
-     *
-     * @return $this
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-     /**
-     * Gets variations.
-     *
-     * @return obj
-     */
-    public function getVariations()
-    {
-        return $this->container['variations'];
-    }
-
-    /**
-     * Sets variations.
-     *
-     * @param string $variations the variations variation of the item
-     *
-     * @return $this
-     */
-    public function setVariations($variations)
-    {
-        $this->container['variations'] = $variations;
-
-        return $this;
-    }
-
-    /**
-     * Gets summaries.
-     *
-     * @return string
-     */
-    public function getSummaries()
-    {
-        return $this->container['summaries'];
-    }
-
-    /**
-     * Sets summaries.
-     *
-     * @param string $summaries the summaries variation of the item
-     *
-     * @return $this
-     */
-    public function setSummaries($summaries)
-    {
-        $this->container['summaries'] = $summaries;
-
-        return $this;
-    }
-
-    /**
-     * Gets images.
-     *
-     * @return string
-     */
-    public function getImages()
-    {
-        return $this->container['images'];
-    }
-
-    /**
-     * Sets images.
-     *
-     * @param string images the images of the item
-     *
-     * @return $this
-     */
-    public function setImages($images)
-    {
-        $this->container['images'] = $images;
-
-        return $this;
-    }
-
-    /**
      * Gets ranks.
      *
      * @return string
@@ -347,7 +207,7 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     /**
      * Sets ranks.
      *
-     * @param string ranks the ranks of the item
+     * @param string $ranks the ranks variation of the item
      *
      * @return $this
      */
@@ -359,28 +219,26 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     }
 
 
-
     /**
-     * Gets errors.
+     * Gets marketplaceId.
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList
+     * @return string
      */
-    public function getErrors()
+    public function getMarketplaceId()
     {
-        return $this->container['errors'];
+        return $this->container['marketplaceId'];
     }
 
     /**
-     * Sets errors.
+     * Sets marketplaceId.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList $errors errors
+     * @param string $marketplaceId the marketplaceId variation of the item
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setMarketplaceId($marketplaceId)
     {
-        $this->container['errors'] = $errors;
-
+        $this->container['marketplaceId'] = $marketplaceId;
         return $this;
     }
 
