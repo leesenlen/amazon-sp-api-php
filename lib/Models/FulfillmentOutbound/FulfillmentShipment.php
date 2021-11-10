@@ -49,8 +49,8 @@ class FulfillmentShipment implements ModelInterface, ArrayAccess
         'amazon_shipment_id' => 'string',
 'fulfillment_center_id' => 'string',
 'fulfillment_shipment_status' => 'string',
-'shipping_date' => 'string',
-'estimated_arrival_date' => 'string',
+'shipping_date' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Timestamp',
+'estimated_arrival_date' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\Timestamp',
 'shipping_notes' => 'string[]',
 'fulfillment_shipment_item' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\FulfillmentShipmentItemList',
 'fulfillment_shipment_package' => '\ClouSale\AmazonSellingPartnerAPI\Models\FulfillmentOutbound\FulfillmentShipmentPackageList',    ];
