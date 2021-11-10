@@ -248,7 +248,7 @@ class ObjectSerializer
             settype($data, 'array');
 
             return $data;
-        } elseif ('\DateTime' === $class) {
+        } elseif ('\DateTime' === $class ||  (class_exists($class) && (new \ReflectionClass($class))->isSubclassOf('\DateTime'))) {
             // Some API's return an invalid, empty string as a
             // date-time property. DateTime::__construct() will return
             // the current time for empty input which is probably not
