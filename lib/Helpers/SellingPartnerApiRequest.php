@@ -180,6 +180,21 @@ trait SellingPartnerApiRequest
         }
     }
 
+    private function logLastRequest($request, $response=null)
+    {
+        $this->lastRequestInfo['path'] = $request->getUri()->getPath();
+        if (!empty($response)) {
+            $this->lastRequestInfo['amazon-ratelimit'] = $response->getAmznRateLimit();
+        } else {
+            $this->lastRequestInfo['amazon-ratelimit'] = null;
+        }
+    }
+
+    public function getLastRequestInfo()
+    {
+        return $this->lastRequestInfo;
+    }
+
     /**
      * Create http client option.
      *
