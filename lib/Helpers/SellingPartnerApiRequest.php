@@ -19,6 +19,8 @@ use GuzzleHttp\Utils;
  */
 trait SellingPartnerApiRequest
 {
+    protected $lastRequestInfo = null;
+
     protected $defaultHttpOptions = [
         'timeout' => 20,
     ];
@@ -142,6 +144,8 @@ trait SellingPartnerApiRequest
             }
 //            var_dump($content);
 //            exit();
+            $sellingApiResponse = new SellingPartnerApiResponse($response);
+            $this->logLastRequest($request, $sellingApiResponse);
 
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
@@ -158,6 +162,12 @@ trait SellingPartnerApiRequest
                 case 401:
                 case 400:
                 case 200:
+                    $sellingApiResponse = new SellingPartnerApiResponse();
+                    $sellingApiResponse->setStatusCode($e->getCode());
+                    $sellingApiResponse->setBody($e->getResponseBody());
+                    $sellingApiResponse->setHeaders($e->getResponseHeaders());
+                    $this->logLastRequest($request, $sellingApiResponse);
+
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         $returnType,
@@ -213,6 +223,9 @@ trait SellingPartnerApiRequest
                         }
                     }
 
+                    $sellingApiResponse = new SellingPartnerApiResponse($response);
+                    $this->logLastRequest($request, $sellingApiResponse);
+
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -220,6 +233,9 @@ trait SellingPartnerApiRequest
                     ];
                 },
                 function ($exception) {
+                    $sellingApiResponse = new SellingPartnerApiResponse($exception->getResponse());
+                    $this->logLastRequest($request, $sellingApiResponse);
+
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
                     throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
