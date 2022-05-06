@@ -264,6 +264,15 @@ class AmazonMarketPlace
         return $sites ?: null;
     }
 
+    public static function siteById($marketplace)
+    {
+        $marketplace = strtoupper(trim($marketplace));
+        foreach (static::$MarketPlaceMap as $site => $value) {
+            if ($value['marketplace_id']===$marketplace) return $site;
+        }
+        return null;
+    }
+
     /**
      * 根据amazon站点门户url，获取对应的站点
      * 比如 amazon.com -> US, amazon.co.jp -> jp
