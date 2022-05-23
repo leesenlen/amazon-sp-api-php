@@ -10,4 +10,7 @@ class SellingPartnerRegion
     public static $KUNIAO_EUROPE = '1';
     public static $KUNIAO_FAR_EAST = '1';
     public static $KUNIAO_NORTH_AMERICA = '1';
+    public static $ZINIAO_EUROPE = '1';
+    public static $ZINIAO_FAR_EAST = '1';
+    public static $ZINIAO_NORTH_AMERICA = '1';
 }

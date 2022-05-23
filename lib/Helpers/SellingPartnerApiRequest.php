@@ -79,9 +79,13 @@ trait SellingPartnerApiRequest
             }
         }
         $query = Query::build($queryParams);
+        $match = preg_match("/^(https?:\/\/)?([^\/]*)\/?/", $this->config->getHost(), $matchArr);
+        if (!$match) {
+            throw new Exception('Invalid Requeset URI:host');
+        }
         $amazonHeader = Signature::calculateSignature(
             $this->config,
-            preg_replace("/\/[a-z0-9]{2,}$/", "", str_replace('https://', '', $this->config->getHost())),
+            $matchArr[2],
             $method,
             $resourcePath,
             $query,
