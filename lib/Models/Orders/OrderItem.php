@@ -302,6 +302,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     const DEEMED_RESELLER_CATEGORY_GB_VOEC = 'GB_VOEC';
     const DEEMED_RESELLER_CATEGORY_CA_MPF = 'CA_MPF';
     const DEEMED_RESELLER_CATEGORY_NO_VOEC = 'NO_VOEC';
+    const DEEMED_RESELLER_CATEGORY_NZ_VOEC = 'NZ_VOEC';
 
     /**
      * Gets allowable values of the enum.
@@ -316,6 +317,7 @@ class OrderItem implements ModelInterface, ArrayAccess
             self::DEEMED_RESELLER_CATEGORY_GB_VOEC,
             self::DEEMED_RESELLER_CATEGORY_CA_MPF,
             self::DEEMED_RESELLER_CATEGORY_NO_VOEC,
+            self::DEEMED_RESELLER_CATEGORY_NZ_VOEC,
         ];
     }
 
