@@ -127,6 +127,15 @@ class AmazonMarketPlace
             'area' => 'EU',
             'vender_central' => 'https://vendorcentral.amazon.it', 
         ],
+        'BE' => [
+            'marketplace_id' => 'AMEN7PMS3EDWL',  
+            'seller_central' => 'https://sellercentral.amazon.com.be', 
+            'country' => 'Belgium', 
+            'channel_site' => 'amazon.com.be', 
+            'currency' => 'EUR',
+            'endpoint' => 'https://mws-eu.amazonservices.com',
+            'area' => 'EU',
+        ],
         'NL' => [
             'marketplace_id' => 'A1805IZSGTT6HS', 
             'seller_central' => 'https://sellercentral.amazon.nl', 
