@@ -13,7 +13,7 @@ class AmazonMarketPlace
             'currency' => 'BRL',
             'endpoint' => 'https://mws.amazonservices.com',
             'area' => 'NA',
-            'vender_central' => 'https://vendorcentral.amazon.com.br',
+            'vendor_central' => 'https://vendorcentral.amazon.com.br',
         ],
         'CA' => [
             'marketplace_id' => 'A2EUQ1WTGCTBG2', 
@@ -23,7 +23,7 @@ class AmazonMarketPlace
             'currency' => 'CAD',
             'endpoint' => 'https://mws.amazonservices.ca',
             'area' => 'NA',
-            'vender_central' => 'https://vendorcentral.amazon.ca', 
+            'vendor_central' => 'https://vendorcentral.amazon.ca', 
         ],
         'MX' => [
             'marketplace_id' => 'A1AM78C64UM0Y8', 
@@ -33,7 +33,7 @@ class AmazonMarketPlace
             'currency' => 'MXN',
             'endpoint' => 'https://mws.amazonservices.com.mx',
             'area' => 'NA',
-            'vender_central' => 'https://vendorcentral.amazon.com.mx', 
+            'vendor_central' => 'https://vendorcentral.amazon.com.mx', 
         ],
         'US' => [
             'marketplace_id' => 'ATVPDKIKX0DER' , 
@@ -43,9 +43,9 @@ class AmazonMarketPlace
             'currency' => 'USD',
             'endpoint' => ' https://mws.amazonservices.com',
             'area' => 'NA',
-            'vender_central' => 'https://vendorcentral.amazon.com', 
+            'vendor_central' => 'https://vendorcentral.amazon.com', 
         ],
-        // 阿联酋
+        
         'AE' => [
             'marketplace_id' => 'A2VIGQ35RCS4UG', 
             'seller_central' => 'https://sellercentral.amazon.ae', 
@@ -54,7 +54,7 @@ class AmazonMarketPlace
             'currency' => 'AED',
             'endpoint' => 'https://mws.amazonservices.ae',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.me', 
+            'vendor_central' => 'https://vendorcentral.amazon.me', 
         ],
         'DE' => [
             'marketplace_id' => 'A1PA6795UKMFR9', 
@@ -64,9 +64,8 @@ class AmazonMarketPlace
             'currency' => 'EUR',
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.de', 
+            'vendor_central' => 'https://vendorcentral.amazon.de', 
         ],
-        // 埃及
         'EG' => [
             'marketplace_id' => 'ARBP9OOSHTCHU' , 
             'seller_central' => 'https://sellercentral.amazon.eg', 
@@ -75,7 +74,7 @@ class AmazonMarketPlace
             'currency' => 'EGP',
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.me', 
+            'vendor_central' => 'https://vendorcentral.amazon.me', 
         ],
         'ES' => [
             'marketplace_id' => 'A1RKKUPIHCS9HS', 
@@ -85,7 +84,7 @@ class AmazonMarketPlace
             'currency' => 'EUR',
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.es', 
+            'vendor_central' => 'https://vendorcentral.amazon.es', 
         ],
         'FR' => [
             'marketplace_id' => 'A13V1IB3VIYZZH', 
@@ -95,7 +94,7 @@ class AmazonMarketPlace
             'currency' => 'EUR',
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.fr', 
+            'vendor_central' => 'https://vendorcentral.amazon.fr', 
         ],
         'UK' => [
             'marketplace_id' => 'A1F83G8C2ARO7P', 
@@ -105,7 +104,7 @@ class AmazonMarketPlace
             'currency' => 'GBP',
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.co.uk', 
+            'vendor_central' => 'https://vendorcentral.amazon.co.uk', 
         ],
         'IN' => [
             'marketplace_id' => 'A21TJRUUN4KGV',  
@@ -115,17 +114,7 @@ class AmazonMarketPlace
             'currency' => 'INR',
             'endpoint' => 'https://mws.amazonservices.in',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.in', 
-        ],
-        'IT' => [
-            'marketplace_id' => 'APJ6JRA9NG5V4',  
-            'seller_central' => 'https://sellercentral.amazon.it', 
-            'country' => 'Italy', 
-            'channel_site' => 'amazon.it', 
-            'currency' => 'EUR',
-            'endpoint' => 'https://mws-eu.amazonservices.com',
-            'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.it', 
+            'vendor_central' => 'https://vendorcentral.amazon.in', 
         ],
         'BE' => [
             'marketplace_id' => 'AMEN7PMS3EDWL',  
@@ -135,6 +124,17 @@ class AmazonMarketPlace
             'currency' => 'EUR',
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
+            'vendor_central' => '', 
+        ],
+        'IT' => [
+            'marketplace_id' => 'APJ6JRA9NG5V4',  
+            'seller_central' => 'https://sellercentral.amazon.it', 
+            'country' => 'Italy', 
+            'channel_site' => 'amazon.it', 
+            'currency' => 'EUR',
+            'endpoint' => 'https://mws-eu.amazonservices.com',
+            'area' => 'EU',
+            'vendor_central' => 'https://vendorcentral.amazon.it', 
         ],
         'NL' => [
             'marketplace_id' => 'A1805IZSGTT6HS', 
@@ -144,7 +144,7 @@ class AmazonMarketPlace
             'currency' => 'EUR',
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.nl', 
+            'vendor_central' => 'https://vendorcentral.amazon.nl', 
         ],
         'PL' => [
             'marketplace_id' => 'A1C3SOZRARQ6R3', 
@@ -154,9 +154,8 @@ class AmazonMarketPlace
             'currency' => 'PLN',
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.pl', 
+            'vendor_central' => 'https://vendorcentral.amazon.pl', 
         ],
-        // 沙特阿拉伯
         'SA' => [
             'marketplace_id' => 'A17E79C6D8DWNP', 
             'seller_central' => 'https://sellercentral.amazon.sa', 
@@ -165,7 +164,7 @@ class AmazonMarketPlace
             'currency' => 'SAR',
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
-            'vender_central' => '', 
+            'vendor_central' => '', 
         ],
         'SE' => [
             'marketplace_id' => 'A2NODRKZP88ZB9', 
@@ -175,7 +174,7 @@ class AmazonMarketPlace
             'currency' => 'SEK',
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.se', 
+            'vendor_central' => 'https://vendorcentral.amazon.se', 
         ],
         'TR' => [
             'marketplace_id' => 'A33AVAJ2PDY3EV', 
@@ -185,7 +184,7 @@ class AmazonMarketPlace
             'currency' => 'TRY', // 不太确定，官方文档上没找到
             'endpoint' => 'https://mws-eu.amazonservices.com',
             'area' => 'EU',
-            'vender_central' => 'https://vendorcentral.amazon.com.tr', 
+            'vendor_central' => 'https://vendorcentral.amazon.com.tr', 
         ],
         
         'SG' => [
@@ -196,7 +195,7 @@ class AmazonMarketPlace
             'currency' => 'SGD',
             'endpoint' => 'https://mws-fe.amazonservices.com',
             'area' => 'FE',
-            'vender_central' => 'https://vendorcentral.amazon.sg', 
+            'vendor_central' => 'https://vendorcentral.amazon.sg', 
         ],
         'AU' => [
             'marketplace_id' => 'A39IBJ37TRP1C6', 
@@ -206,7 +205,7 @@ class AmazonMarketPlace
             'currency' => 'AUD',
             'endpoint' => 'https://mws.amazonservices.com.au',
             'area' => 'FE',
-            'vender_central' => 'https://vendorcentral.amazon.com.au', 
+            'vendor_central' => 'https://vendorcentral.amazon.com.au', 
         ],
         'JP' => [
             'marketplace_id' => 'A1VC38T7YXB528', 
@@ -216,7 +215,7 @@ class AmazonMarketPlace
             'currency' => 'JPY',
             'endpoint' => 'https://mws.amazonservices.jp',
             'area' => 'FE',
-            'vender_central' => 'https://vendorcentral.amazon.co.jp', 
+            'vendor_central' => 'https://vendorcentral.amazon.co.jp', 
         ],
     ];
 
@@ -298,6 +297,6 @@ class AmazonMarketPlace
     public static function vendorCentral($site)
     {
         $site = strtoupper(trim($site));
-        return !empty(static::$MarketPlaceMap[$site]) ? static::$MarketPlaceMap[$site]['vender_central'] : null;
+        return !empty(static::$MarketPlaceMap[$site]) ? static::$MarketPlaceMap[$site]['vendor_central'] : null;
     }
 }
