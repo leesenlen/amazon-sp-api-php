@@ -59,7 +59,7 @@ class SellingPartnerApiResponse
 
     public function getAmznRateLimit()
     {
-        $limitInfo = $this->headers['x-amzn-RateLimit-Limit'] ? $this->headers['x-amzn-RateLimit-Limit'] : [0];
+        $limitInfo = isset($this->headers['x-amzn-RateLimit-Limit']) ? $this->headers['x-amzn-RateLimit-Limit'] : [0];
 
         return floatval(current($limitInfo));
     }
