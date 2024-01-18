@@ -398,13 +398,6 @@ class OrderItem implements ModelInterface, ArrayAccess
         if (null === $this->container['quantity_ordered']) {
             $invalidProperties[] = "'quantity_ordered' can't be null";
         }
-        $allowedValues = $this->getDeemedResellerCategoryAllowableValues();
-        if (!is_null($this->container['deemed_reseller_category']) && !in_array($this->container['deemed_reseller_category'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'deemed_reseller_category', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -1183,10 +1176,6 @@ class OrderItem implements ModelInterface, ArrayAccess
      */
     public function setDeemedResellerCategory($deemed_reseller_category)
     {
-        $allowedValues = $this->getDeemedResellerCategoryAllowableValues();
-        if (!is_null($deemed_reseller_category) && !in_array($deemed_reseller_category, $allowedValues, true)) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'deemed_reseller_category', must be one of '%s'", implode("', '", $allowedValues)));
-        }
         $this->container['deemed_reseller_category'] = $deemed_reseller_category;
 
         return $this;
