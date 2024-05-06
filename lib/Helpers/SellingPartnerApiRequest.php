@@ -21,6 +21,7 @@ trait SellingPartnerApiRequest
 {
 
     protected $lastRequestInfo = null;
+    protected $lastHederInfo = null;
 
     protected $defaultHttpOptions = [
         'timeout' => 20,
@@ -191,14 +192,21 @@ trait SellingPartnerApiRequest
         $this->lastRequestInfo['path'] = $request->getUri()->getPath();
         if (!empty($response)) {
             $this->lastRequestInfo['amazon-ratelimit'] = $response->getAmznRateLimit();
+            $this->lastHederInfo = $response->getHeaders();
         } else {
             $this->lastRequestInfo['amazon-ratelimit'] = null;
+            $this->lastHederInfo = null;
         }
     }
 
     public function getLastRequestInfo()
     {
         return $this->lastRequestInfo;
+    }
+
+    public function getLastHederInfo()
+    {
+        return $this->lastHederInfo;
     }
 
     /**
