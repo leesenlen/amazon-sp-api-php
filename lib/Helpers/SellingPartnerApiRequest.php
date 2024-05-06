@@ -82,7 +82,7 @@ trait SellingPartnerApiRequest
         $query = Query::build($queryParams);
         $amazonHeader = Signature::calculateSignature(
             $this->config,
-            preg_replace("/\/[a-z0-9]{2,}$/", "", str_replace('https://', '', $this->config->getHost())),
+            parse_url($this->config->getHost(), PHP_URL_HOST),
             $method,
             $resourcePath,
             $query,
