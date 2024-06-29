@@ -303,9 +303,9 @@ class ObjectSerializer
 
             // 兼容SPAPI第一版接口中的payload参数，后续新版本的接口都取消了这层参数
             if (!empty($swaggerTypes['payload']) && substr($class, -8) === 'Response') {
-                $newdata = [];
-                if (!isset($data['errors']) && !isset($data['Errors']) && !isset($data['payload'])) {
-                    $newdata['payload'] = $data;
+                $newdata = new \stdClass();
+                if (!isset($data->errors) && !isset($data->Errors) && !isset($data->payload)) {
+                    $newdata->payload = $data;
                     $data = $newdata;
                 }
             }
