@@ -46,7 +46,7 @@ class GetReportSchedulesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'payload' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportScheduleList',
+        'reportSchedules' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportScheduleList',
 'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ErrorList',    ];
 
     /**
@@ -55,7 +55,7 @@ class GetReportSchedulesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'payload' => null,
+        'reportSchedules' => null,
 'errors' => null,    ];
 
     /**
@@ -85,7 +85,7 @@ class GetReportSchedulesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
+        'reportSchedules' => 'reportSchedules',
 'errors' => 'errors',    ];
 
     /**
@@ -94,7 +94,7 @@ class GetReportSchedulesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
+        'reportSchedules' => 'setReportSchedules',
 'errors' => 'setErrors',    ];
 
     /**
@@ -103,7 +103,7 @@ class GetReportSchedulesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
+        'reportSchedules' => 'getReportSchedules',
 'errors' => 'getErrors',    ];
 
     /**
@@ -162,7 +162,7 @@ class GetReportSchedulesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['reportSchedules'] = isset($data['reportSchedules']) ? $data['reportSchedules'] : null;
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
@@ -190,25 +190,25 @@ class GetReportSchedulesResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets payload.
+     * Gets reportSchedules.
      *
      * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportScheduleList
      */
-    public function getPayload()
+    public function getReportSchedules()
     {
-        return $this->container['payload'];
+        return $this->container['reportSchedules'];
     }
 
     /**
-     * Sets payload.
+     * Sets reportSchedules.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportScheduleList $payload payload
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportScheduleList $reportSchedules reportSchedules
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setReportSchedules($reportSchedules)
     {
-        $this->container['payload'] = $payload;
+        $this->container['reportSchedules'] = $reportSchedules;
 
         return $this;
     }

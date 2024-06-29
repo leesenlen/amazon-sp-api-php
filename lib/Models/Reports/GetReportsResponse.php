@@ -46,7 +46,7 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'payload' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportList',
+        'reports' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportList',
 'next_token' => 'string',
 'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Reports\ErrorList',    ];
 
@@ -56,7 +56,7 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'payload' => null,
+        'reports' => null,
 'next_token' => null,
 'errors' => null,    ];
 
@@ -87,7 +87,7 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
+        'reports' => 'reports',
 'next_token' => 'nextToken',
 'errors' => 'errors',    ];
 
@@ -97,7 +97,7 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
+        'reports' => 'setReports',
 'next_token' => 'setNextToken',
 'errors' => 'setErrors',    ];
 
@@ -107,7 +107,7 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
+        'reports' => 'getReports',
 'next_token' => 'getNextToken',
 'errors' => 'getErrors',    ];
 
@@ -167,7 +167,7 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['reports'] = isset($data['reports']) ? $data['reports'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
@@ -196,25 +196,25 @@ class GetReportsResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets payload.
+     * Gets reports.
      *
      * @return \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportList
      */
-    public function getPayload()
+    public function getReports()
     {
-        return $this->container['payload'];
+        return $this->container['reports'];
     }
 
     /**
-     * Sets payload.
+     * Sets reports.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportList $payload payload
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Reports\ReportList $reports reports
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setReports($reports)
     {
-        $this->container['payload'] = $payload;
+        $this->container['reports'] = $reports;
 
         return $this;
     }
