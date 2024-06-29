@@ -47,8 +47,10 @@ class SummariesListType extends Categories implements ModelInterface, ArrayAcces
      */
     protected static $swaggerTypes = [
         'marketplaceId' => 'string',
-        'brandName' => 'string',
+        'brand' => 'string',
         'itemName' => 'string',
+        'itemClassification' => 'string',
+        'websiteDisplayGroupName' => 'string',
     ];
 
     /**
@@ -58,8 +60,10 @@ class SummariesListType extends Categories implements ModelInterface, ArrayAcces
      */
     protected static $swaggerFormats = [
         'marketplaceId' => null,
-        'brandName' => null,
+        'brand' => null,
         'itemName' => null,
+        'itemClassification' => null,
+        'websiteDisplayGroupName' => null,
     ];
 
     /**
@@ -90,8 +94,10 @@ class SummariesListType extends Categories implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'marketplaceId' => 'marketplaceId',
-        'brandName' => 'brandName',
+        'brand' => 'brand',
         'itemName' => 'itemName',
+        'itemClassification' => 'itemClassification',
+        'websiteDisplayGroupName' => 'websiteDisplayGroupName',
     ];
 
     /**
@@ -101,8 +107,10 @@ class SummariesListType extends Categories implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'marketplaceId' => 'setMarketplaceId',
-        'brandName' => 'setBrandName',
+        'brand' => 'setBrand',
         'itemName' => 'setItemName',
+        'itemClassification' => 'setItemClassification',
+        'websiteDisplayGroupName' => 'setWebsiteDisplayGroupName',
     ];
 
     /**
@@ -111,9 +119,11 @@ class SummariesListType extends Categories implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'brandName' => 'getBrandName',
+        'brand' => 'getBrand',
         'itemName' => 'getItemName',
         'marketplaceId' => 'getMarketplaceId',
+        'itemClassification' => 'getItemClassification',
+        'websiteDisplayGroupName' => 'getWebsiteDisplayGroupName',
     ];
 
     /**
@@ -172,9 +182,11 @@ class SummariesListType extends Categories implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['brandName'] = isset($data['brandName']) ? $data['brandName'] : null;
+        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
         $this->container['itemName'] = isset($data['itemName']) ? $data['itemName'] : null;
         $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
+        $this->container['itemClassification'] = isset($data['itemClassification']) ? $data['itemClassification'] : null;
+        $this->container['websiteDisplayGroupName'] = isset($data['websiteDisplayGroupName']) ? $data['websiteDisplayGroupName'] : null;
     }
 
     /**
@@ -205,9 +217,9 @@ class SummariesListType extends Categories implements ModelInterface, ArrayAcces
      *
      * @return string
      */
-    public function getBrandName()
+    public function getBrand()
     {
-        return $this->container['brandName'];
+        return $this->container['brand'];
     }
 
     /**
@@ -217,9 +229,9 @@ class SummariesListType extends Categories implements ModelInterface, ArrayAcces
      *
      * @return $this
      */
-    public function setBrandName($brandName)
+    public function setBrand($brand)
     {
-        $this->container['brandName'] = $brandName;
+        $this->container['brand'] = $brand;
 
         return $this;
     }
@@ -268,6 +280,53 @@ class SummariesListType extends Categories implements ModelInterface, ArrayAcces
     public function setMarketplaceId($marketplaceId)
     {
         $this->container['marketplaceId'] = $marketplaceId;
+        return $this;
+    }
+
+    /**
+     * Gets itemClassification.
+     *
+     * @return string
+     */
+    public function getItemClassification()
+    {
+        return $this->container['itemClassification'];
+    }
+
+    /**
+     * Sets itemClassification.
+     *
+     * @param string 
+     *
+     * @return $this
+     */
+    public function setItemClassification($itemClassification)
+    {
+        $this->container['itemClassification'] = $itemClassification;
+        return $this;
+    }
+
+    /**
+     * Gets websiteDisplayGroupName.
+     *
+     * @return string
+     */
+    public function getWebsiteDisplayGroupName()
+    {
+        return $this->container['websiteDisplayGroupName'];
+    }
+
+    /**
+     * Sets websiteDisplayGroupName.
+     *
+     * @param string 
+     *
+     * @return $this
+     */
+    public function setWebsiteDisplayGroupName($websiteDisplayGroupName)
+    {
+        $this->container['websiteDisplayGroupName'] = $websiteDisplayGroupName;
+
         return $this;
     }
 

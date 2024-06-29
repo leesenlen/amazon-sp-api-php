@@ -48,6 +48,7 @@ class LanguageListType extends Categories implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'language_tag' => 'string',
         'value' => 'string',
+        'name' => 'string',
         'marketplace_id' => 'string',
     ];
 
@@ -59,6 +60,7 @@ class LanguageListType extends Categories implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'language_tag' => null,
         'value' => null,
+        'name' => null,
         'marketplace_id' => null,
     ];
 
@@ -91,6 +93,7 @@ class LanguageListType extends Categories implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'language_tag' => 'language_tag',
         'value' => 'value',
+        'name' => 'name',
         'marketplace_id' => 'marketplace_id',
     ];
 
@@ -102,6 +105,7 @@ class LanguageListType extends Categories implements ModelInterface, ArrayAccess
     protected static $setters = [
         'language_tag' => 'setLanguageTag',
         'value' => 'setValue',
+        'name' => 'setName',
         'marketplace_id' => 'setMarketplaceId',
     ];
 
@@ -113,6 +117,7 @@ class LanguageListType extends Categories implements ModelInterface, ArrayAccess
     protected static $getters = [
         'language_tag' => 'getLanguageTag',
         'value' => 'getValue',
+        'name' => 'getName',
         'marketplace_id' => 'getMarketplaceId',
     ];
 
@@ -174,6 +179,7 @@ class LanguageListType extends Categories implements ModelInterface, ArrayAccess
     {
         $this->container['language_tag'] = isset($data['language_tag']) ? $data['language_tag'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['marketplace_id'] = isset($data['marketplace_id']) ? $data['marketplace_id'] : null;
     }
 
@@ -244,6 +250,30 @@ class LanguageListType extends Categories implements ModelInterface, ArrayAccess
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+     /**
+     * Gets name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name.
+     *
+     * @param string $name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

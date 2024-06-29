@@ -46,10 +46,11 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
         'asin' => 'string',
         'attributes'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewAttributes',
         'variations'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewVariationsList',
-        'summaries' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\SummariesList',
+        'summaries' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\SummariesList', 
         'images' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ImagesList',
         'ranks' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\RanksList',
-        'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList',    ];
+        'identifiers'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemIdentifiers',
+        'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList',];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -63,6 +64,7 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
         'summaries'=>null,
         'images'=>null,
         'ranks'=>null,
+        'identifiers'=>null,
         'errors' => null,    ];
 
     /**
@@ -98,6 +100,7 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
         'summaries'=>'summaries',
         'images'=>'images',
         'ranks'=>'ranks',
+        'identifiers'=>'identifiers',
         'errors' => 'errors',    ];
 
     /**
@@ -112,6 +115,7 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
         'summaries'=>'setSummaries',
         'images'=>'setImages',
         'ranks'=>'setRanks',
+        'identifiers'=>'setIdentifiers',
         'errors' => 'setErrors',    ];
 
     /**
@@ -126,6 +130,7 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
         'summaries'=>'getSummaries',
         'images'=>'getImages',
         'ranks'=>'setRanks',
+        'identifiers'=>'getIdentifiers',
         'errors' => 'getErrors',    ];
 
     /**
@@ -190,6 +195,7 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
         $this->container['summaries'] = isset($data['summaries']) ? $data['summaries'] : null;
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
         $this->container['ranks'] = isset($data['ranks']) ? $data['ranks'] : null;
+        $this->container['identifiers'] = isset($data['identifiers']) ? $data['identifiers'] : null;
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
@@ -354,6 +360,30 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     public function setRanks($ranks)
     {
         $this->container['ranks'] = $ranks;
+
+        return $this;
+    }
+
+    /**
+     * Gets identifiers.
+     *
+     * @return string
+     */
+    public function getIdentifiers()
+    {
+        return $this->container['identifiers'];
+    }
+
+    /**
+     * Sets identifiers.
+     *
+     * @param string ranks the ranks of the item
+     *
+     * @return $this
+     */
+    public function setIdentifiers($identifiers)
+    {
+        $this->container['identifiers'] = $identifiers;
 
         return $this;
     }

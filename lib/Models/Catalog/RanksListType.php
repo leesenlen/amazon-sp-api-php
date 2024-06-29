@@ -47,7 +47,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     protected static $swaggerTypes = [
         'marketplaceId' => 'string',
-        'ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewRanks',
+        //'ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewRanks',
+        'classificationRanks'=>'object',
+        'displayGroupRanks'=>'object'
     ];
 
     /**
@@ -57,7 +59,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     protected static $swaggerFormats = [
         'marketplaceId' => null,
-        'ranks' => null,
+        'classificationRanks' => null,
+        'displayGroupRanks' => null,
     ];
 
     /**
@@ -88,7 +91,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'marketplaceId' => 'marketplaceId',
-        'ranks' => 'ranks',
+        'classificationRanks' => 'classificationRanks',
+        'displayGroupRanks' => 'displayGroupRanks',
     ];
 
     /**
@@ -98,7 +102,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'marketplaceId' => 'setMarketplaceId',
-        'ranks' => 'setRanks',
+        'classificationRanks' => 'setClassificationRanks',
+        'displayGroupRanks' => 'setDisplayGroupRanks',
     ];
 
     /**
@@ -107,8 +112,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ranks' => 'getRanks',
+        'classificationRanks' => 'getClassificationRanks',
         'marketplaceId' => 'getMarketplaceId',
+        'displayGroupRanks' => 'getDisplayGroupRanks'
     ];
 
     /**
@@ -167,7 +173,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ranks'] = isset($data['ranks']) ? $data['ranks'] : null;
+        $this->container['classificationRanks'] = isset($data['classificationRanks']) ? $data['classificationRanks'] : null;
+        $this->container['displayGroupRanks'] = isset($data['displayGroupRanks']) ? $data['displayGroupRanks'] : null;
         $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
     }
 
@@ -195,13 +202,13 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets ranks.
+     * Gets classificationRanks.
      *
      * @return string
      */
-    public function getRanks()
+    public function getClassificationRanks()
     {
-        return $this->container['ranks'];
+        return $this->container['classificationRanks'];
     }
 
     /**
@@ -211,12 +218,37 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setRanks($ranks)
+    public function setClassificationRanks($classificationRanks)
     {
-        $this->container['ranks'] = $ranks;
+        $this->container['classificationRanks'] = $classificationRanks;
 
         return $this;
     }
+
+    /**
+     * Gets displayGroupRanks.
+     *
+     * @return string
+     */
+    public function getDisplayGroupRanks()
+    {
+        return $this->container['displayGroupRanks'];
+    }
+
+    /**
+     * Sets ranks.
+     *
+     * @param string $ranks the ranks variation of the item
+     *
+     * @return $this
+     */
+    public function setDisplayGroupRanks($displayGroupRanks)
+    {
+        $this->container['displayGroupRanks'] = $displayGroupRanks;
+
+        return $this;
+    }
+
 
 
     /**

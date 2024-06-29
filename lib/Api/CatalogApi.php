@@ -20,9 +20,10 @@ use ClouSale\AmazonSellingPartnerAPI\Configuration;
 use ClouSale\AmazonSellingPartnerAPI\HeaderSelector;
 use ClouSale\AmazonSellingPartnerAPI\Helpers\SellingPartnerApiRequest;
 use ClouSale\AmazonSellingPartnerAPI\Models\Catalog\GetCatalogItemResponse;
-use ClouSale\AmazonSellingPartnerAPI\Models\Catalog\GetCatalogNewItemResponse;
+use ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewItemsType;
 use ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ListCatalogCategoriesResponse;
 use ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ListCatalogItemsResponse;
+use ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ListNewCatalogItemsResponse;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -189,7 +190,6 @@ class CatalogApi
     public function getNewCatalogItem($marketplace_id, $asin, $includedData)
     {
         list($response) = $this->getNewCatalogItemWithHttpInfo($marketplace_id, $asin, $includedData);
-
         return $response;
     }
 
@@ -208,7 +208,7 @@ class CatalogApi
     {
         $request = $this->getNewCatalogItemRequest($marketplace_id, $asin, $includedData);
 
-        return $this->sendRequest($request, GetCatalogNewItemResponse::class);
+        return $this->sendRequest($request, NewItemsType::class);
     }
     /**
      * Create request for operation 'getCatalogItem'.
@@ -231,7 +231,7 @@ class CatalogApi
             throw new InvalidArgumentException('Missing the required parameter $asin when calling getCatalogItem');
         }
 
-        $resourcePath = '/catalog/2020-12-01/items/{asin}';
+        $resourcePath = '/catalog/2022-04-01/items/{asin}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -255,7 +255,6 @@ class CatalogApi
 
         return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'GET', $httpBody);
     }
-
     /**
      * Operation listCatalogCategories.
      *
@@ -533,6 +532,68 @@ class CatalogApi
         if (null !== $jan) {
             $queryParams['JAN'] = ObjectSerializer::toQueryValue($jan);
         }
+
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'GET', $httpBody);
+    }
+
+    public function listNewCatalogItems($marketplaceId, $includedData, $identifiers = null, $identifiersType='ASIN', $query =null)
+    {
+        list($response) = $this->listNewCatalogItemsWithHttpInfo($marketplaceId, $includedData, $identifiers, $identifiersType, $query);
+
+        return $response;
+    }
+
+    public function listNewCatalogItemsWithHttpInfo($marketplaceId, $includedData, $identifiers = null, $identifiersType = null, $query =null)
+    {
+        $request = $this->listNewCatalogItemsRequest($marketplaceId, $includedData, $identifiers, $identifiersType, $query);
+
+        return $this->sendRequest($request, ListNewCatalogItemsResponse::class);
+    }
+
+
+    public function listNewCatalogItemsRequest($marketplaceId, $includedData, $identifiers = null, $identifiersType = null, $query = [])
+    {
+         // verify the required parameter 'marketplace_id' is set
+        if (null === $marketplaceId || (is_array($marketplaceId) && 0 === count($marketplaceId))) {
+            throw new InvalidArgumentException('Missing the required parameter $marketplace_id when calling listCatalogItems');
+        }
+
+        $resourcePath = '/catalog/2022-04-01/items';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (null !== $marketplaceId) {
+            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplaceId);
+        }
+        // query params
+        if (null !== $identifiers) {
+            $queryParams['identifiers'] = ObjectSerializer::toQueryValue($identifiers);
+        }
+        // query params
+        if (null !== $identifiersType ) {
+            $queryParams['identifiersType'] = ObjectSerializer::toQueryValue($identifiersType);
+        }
+        // query params
+        if (null !== $includedData) {
+            $queryParams['includedData'] = $includedData;
+        }
+        if (isset($query['keywords'])) {
+            $queryParams['keywords'] = ObjectSerializer::toQueryValue($query['keywords']);
+        }
+        if (isset($query['classificationIds'])) {
+            $queryParams['classificationIds'] = $query['classificationIds'];
+        }
+        if (isset($query['pageSize'])) {
+            $queryParams['pageSize'] = $query['pageSize'];
+        }
+         if (isset($query['pageToken'])) {
+            $queryParams['pageToken'] = $query['pageToken'];
+        }
+   
 
         return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'GET', $httpBody);
     }
