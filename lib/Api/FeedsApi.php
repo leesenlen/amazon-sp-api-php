@@ -10,7 +10,7 @@
  *
  * The Selling Partner API for Feeds lets you upload data to Amazon on behalf of a selling partner.
  *
- * OpenAPI spec version: 2020-09-04
+ * OpenAPI spec version: 2021-06-30
  */
 
 namespace ClouSale\AmazonSellingPartnerAPI\Api;
@@ -153,7 +153,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $feed_id when calling cancelFeed');
         }
 
-        $resourcePath = '/feeds/2020-09-04/feeds/{feedId}';
+        $resourcePath = '/feeds/2021-06-30/feeds/{feedId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -258,7 +258,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createFeed');
         }
 
-        $resourcePath = '/feeds/2020-09-04/feeds';
+        $resourcePath = '/feeds/2021-06-30/feeds';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -353,7 +353,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createFeedDocument');
         }
 
-        $resourcePath = '/feeds/2020-09-04/documents';
+        $resourcePath = '/feeds/2021-06-30/documents';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -450,7 +450,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $feed_id when calling getFeed');
         }
 
-        $resourcePath = '/feeds/2020-09-04/feeds/{feedId}';
+        $resourcePath = '/feeds/2021-06-30/feeds/{feedId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -554,7 +554,7 @@ class FeedsApi
             throw new \InvalidArgumentException('Missing the required parameter $feed_document_id when calling getFeedDocument');
         }
 
-        $resourcePath = '/feeds/2020-09-04/documents/{feedDocumentId}';
+        $resourcePath = '/feeds/2021-06-30/documents/{feedDocumentId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -684,7 +684,7 @@ class FeedsApi
      */
     protected function getFeedsRequest($feed_types = null, $marketplace_ids = null, $page_size = '10', $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
     {
-        $resourcePath = '/feeds/2020-09-04/feeds';
+        $resourcePath = '/feeds/2021-06-30/feeds';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
