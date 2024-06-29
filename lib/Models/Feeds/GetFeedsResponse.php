@@ -46,7 +46,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'payload' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedList',
+        'feeds' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedList',
 'next_token' => 'string',
 'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Feeds\ErrorList',    ];
 
@@ -56,7 +56,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'payload' => null,
+        'feeds' => null,
 'next_token' => null,
 'errors' => null,    ];
 
@@ -87,7 +87,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
+        'feeds' => 'feeds',
 'next_token' => 'nextToken',
 'errors' => 'errors',    ];
 
@@ -97,7 +97,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
+        'feeds' => 'setFeeds',
 'next_token' => 'setNextToken',
 'errors' => 'setErrors',    ];
 
@@ -107,7 +107,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
+        'feeds' => 'getFeeds',
 'next_token' => 'getNextToken',
 'errors' => 'getErrors',    ];
 
@@ -167,7 +167,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['feeds'] = isset($data['feeds']) ? $data['feeds'] : null;
         $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
@@ -196,25 +196,25 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets payload.
+     * Gets feeds.
      *
      * @return \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedList
      */
-    public function getPayload()
+    public function getFeeds()
     {
-        return $this->container['payload'];
+        return $this->container['feeds'];
     }
 
     /**
-     * Sets payload.
+     * Sets feeds.
      *
-     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedList $payload payload
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Feeds\FeedList $feeds feeds
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setFeeds($feeds)
     {
-        $this->container['payload'] = $payload;
+        $this->container['feeds'] = $feeds;
 
         return $this;
     }
