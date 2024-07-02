@@ -33,25 +33,29 @@ class ReportDownloadHelper
         $content = $download_stream->getContents();
 
         // 解密
-        $encryption_details = $document['encryption_details'];
-        switch ($encryption_details['standard']) {
-            case 'AES': 
-                $content = AESCryptFactory::decrypt($content, $encryption_details['key'], $encryption_details['initialization_vector']);
-                break;
+        if (isset($document['encryption_details'])) {
+            $encryption_details = $document['encryption_details'];
+            switch ($encryption_details['standard']) {
+                case 'AES': 
+                    $content = AESCryptFactory::decrypt($content, $encryption_details['key'], $encryption_details['initialization_vector']);
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
+            }
         }
-
+        
         // 解压
-        $compression_algorithm = $document['compression_algorithm'];
-        switch ($compression_algorithm) {
-            case 'GZIP': 
-                $content = GZIPDecodeFactory::decode($content);
-                break;
+        if (isset($document['compression_algorithm'])) {
+            $compression_algorithm = $document['compression_algorithm'];
+            switch ($compression_algorithm) {
+                case 'GZIP': 
+                    $content = GZIPDecodeFactory::decode($content);
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
+            }
         }
 
         /**
