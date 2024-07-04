@@ -1,6 +1,6 @@
 <?php
 /**
- * NewVariationsListType.
+ * GetCatalogItemResponse.
  *
  * PHP version 5
  *
@@ -22,14 +22,11 @@ use ClouSale\AmazonSellingPartnerAPI\Models\ModelInterface;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
- * NewVariationsListType Class Doc Comment.
- *
-
- * @description Specific variations of the item.
+ * GetCatalogItemResponse Class Doc Comment.
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class RanksListType extends Categories implements ModelInterface, ArrayAccess
+class ListNewItems extends Categories implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -38,7 +35,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = 'RanksListType';
+    protected static $swaggerModelName = 'ListNewItems';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -46,10 +43,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'marketplaceId' => 'string',
-        //'ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewRanks',
-        'classificationRanks'=>'object',
-        'displayGroupRanks'=>'object'
+        'numberOfResults' => 'integer',
+        'items' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewItems',
+        'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList',    
     ];
 
     /**
@@ -58,9 +54,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'marketplaceId' => null,
-        'classificationRanks' => null,
-        'displayGroupRanks' => null,
+        'numberOfResults'=>null,
+        'items' => null,
+        'errors' => null,    
     ];
 
     /**
@@ -90,9 +86,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketplaceId' => 'marketplaceId',
-        'classificationRanks' => 'classificationRanks',
-        'displayGroupRanks' => 'displayGroupRanks',
+        'numberOfResults' => 'numberOfResults',
+        'items' => 'items',
+        'errors' => 'errors',    
     ];
 
     /**
@@ -101,9 +97,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'marketplaceId' => 'setMarketplaceId',
-        'classificationRanks' => 'setClassificationRanks',
-        'displayGroupRanks' => 'setDisplayGroupRanks',
+        'numberOfResults'=>'setNumberOfResults'
+        'items' => 'setItems',
+        'errors' => 'setErrors',    
     ];
 
     /**
@@ -112,9 +108,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'classificationRanks' => 'getClassificationRanks',
-        'marketplaceId' => 'getMarketplaceId',
-        'displayGroupRanks' => 'getDisplayGroupRanks'
+        'numberOfResults'=>'getNumberOfResults'
+        'items' => 'getItems',
+        'errors' => 'getErrors',    
     ];
 
     /**
@@ -173,9 +169,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['classificationRanks'] = isset($data['classificationRanks']) ? $data['classificationRanks'] : null;
-        $this->container['displayGroupRanks'] = isset($data['displayGroupRanks']) ? $data['displayGroupRanks'] : null;
-        $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
+        $this->container['numberOfResults'] = isset($data['numberOfResults']) ? $data['numberOfResults'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
     /**
@@ -202,74 +198,73 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets classificationRanks.
+     * Gets items.
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\items
      */
-    public function getClassificationRanks()
+    public function getItems()
     {
-        return $this->container['classificationRanks'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets ranks.
+     * Sets items.
      *
-     * @param string $ranks the ranks variation of the item
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\items $payload payload
      *
      * @return $this
      */
-    public function setClassificationRanks($classificationRanks)
+    public function setItems($items)
     {
-        $this->container['classificationRanks'] = $classificationRanks;
+        $this->container['items'] = $items;
+
+        return $this;
+    }
+     /**
+     * Gets setNumberOfResults.
+     *
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\items setNumberOfResults
+     */
+    public function getNumberOfResults()
+    {
+        return $this->container['numberOfResults'];
+    }
+
+    /**
+     * Sets numberOfResults.
+     *
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\items $numberOfResults
+     *
+     * @return $this
+     */
+    public function setNumberOfResults($numberOfResults)
+    {
+        $this->container['numberOfResults'] = $numberOfResults;
 
         return $this;
     }
 
     /**
-     * Gets displayGroupRanks.
+     * Gets errors.
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList
      */
-    public function getDisplayGroupRanks()
+    public function getErrors()
     {
-        return $this->container['displayGroupRanks'];
+        return $this->container['errors'];
     }
 
     /**
-     * Sets ranks.
+     * Sets errors.
      *
-     * @param string $ranks the ranks variation of the item
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList $errors errors
      *
      * @return $this
      */
-    public function setDisplayGroupRanks($displayGroupRanks)
+    public function setErrors($errors)
     {
-        $this->container['displayGroupRanks'] = $displayGroupRanks;
+        $this->container['errors'] = $errors;
 
-        return $this;
-    }
-
-
-    /**
-     * Gets marketplaceId.
-     *
-     * @return string
-     */
-    public function getMarketplaceId()
-    {
-        return $this->container['marketplaceId'];
-    }
-
-    /**
-     * Sets marketplaceId.
-     *
-     * @param string $marketplaceId the marketplaceId variation of the item
-     *
-     * @return $this
-     */
-    public function setMarketplaceId($marketplaceId)
-    {
-        $this->container['marketplaceId'] = $marketplaceId;
         return $this;
     }
 

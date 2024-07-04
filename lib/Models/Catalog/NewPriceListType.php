@@ -1,6 +1,6 @@
 <?php
 /**
- * NewVariationsListType.
+ * BulletPointListType.
  *
  * PHP version 5
  *
@@ -22,14 +22,14 @@ use ClouSale\AmazonSellingPartnerAPI\Models\ModelInterface;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
- * NewVariationsListType Class Doc Comment.
+ * RelationshipType Class Doc Comment.
  *
 
  * @description Specific variations of the item.
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class RanksListType extends Categories implements ModelInterface, ArrayAccess
+class NewPriceListType extends Categories implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -38,7 +38,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = 'RanksListType';
+    protected static $swaggerModelName = 'NewPriceListType';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -46,10 +46,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'marketplaceId' => 'string',
-        //'ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewRanks',
-        'classificationRanks'=>'object',
-        'displayGroupRanks'=>'object'
+        'currency' => 'string',
+        'value' => 'string',
+        'marketplace_id' => 'string',
     ];
 
     /**
@@ -58,9 +57,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'marketplaceId' => null,
-        'classificationRanks' => null,
-        'displayGroupRanks' => null,
+        'currency' => null,
+        'value' => null,
+        'marketplace_id' => null,
     ];
 
     /**
@@ -90,9 +89,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketplaceId' => 'marketplaceId',
-        'classificationRanks' => 'classificationRanks',
-        'displayGroupRanks' => 'displayGroupRanks',
+        'currency' => 'currency',
+        'value' => 'value',
+        'marketplace_id' => 'marketplace_id',
     ];
 
     /**
@@ -101,9 +100,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'marketplaceId' => 'setMarketplaceId',
-        'classificationRanks' => 'setClassificationRanks',
-        'displayGroupRanks' => 'setDisplayGroupRanks',
+        'currency' => 'setCurrency',
+        'value' => 'setValue',
+        'marketplace_id' => 'setMarketplaceId',
     ];
 
     /**
@@ -112,9 +111,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'classificationRanks' => 'getClassificationRanks',
-        'marketplaceId' => 'getMarketplaceId',
-        'displayGroupRanks' => 'getDisplayGroupRanks'
+        'currency' => 'getCurrency',
+        'value' => 'getValue',
+        'marketplace_id' => 'getMarketplaceId',
     ];
 
     /**
@@ -173,9 +172,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['classificationRanks'] = isset($data['classificationRanks']) ? $data['classificationRanks'] : null;
-        $this->container['displayGroupRanks'] = isset($data['displayGroupRanks']) ? $data['displayGroupRanks'] : null;
-        $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['marketplace_id'] = isset($data['marketplace_id']) ? $data['marketplace_id'] : null;
     }
 
     /**
@@ -202,62 +201,60 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets classificationRanks.
+     * Gets currency.
      *
      * @return string
      */
-    public function getClassificationRanks()
+    public function getCurrency()
     {
-        return $this->container['classificationRanks'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets ranks.
+     * Sets currency.
      *
-     * @param string $ranks the ranks variation of the item
+     * @param string $languageTag the language_tag variation of the item
      *
      * @return $this
      */
-    public function setClassificationRanks($classificationRanks)
+    public function setCurrency($currency)
     {
-        $this->container['classificationRanks'] = $classificationRanks;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets displayGroupRanks.
+     * Gets value.
      *
      * @return string
      */
-    public function getDisplayGroupRanks()
+    public function getValue()
     {
-        return $this->container['displayGroupRanks'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets ranks.
+     * Sets value.
      *
-     * @param string $ranks the ranks variation of the item
+     * @param string $value the value variation of the item
      *
      * @return $this
      */
-    public function setDisplayGroupRanks($displayGroupRanks)
+    public function setValue($value)
     {
-        $this->container['displayGroupRanks'] = $displayGroupRanks;
+        $this->container['value'] = $value;
 
         return $this;
     }
-
-
     /**
-     * Gets marketplaceId.
+     * Gets marketplace_id.
      *
      * @return string
      */
     public function getMarketplaceId()
     {
-        return $this->container['marketplaceId'];
+        return $this->container['marketplace_id'];
     }
 
     /**
@@ -269,7 +266,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     public function setMarketplaceId($marketplaceId)
     {
-        $this->container['marketplaceId'] = $marketplaceId;
+        $this->container['marketplace_id'] = $marketplaceId;
         return $this;
     }
 

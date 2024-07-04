@@ -46,8 +46,7 @@ class NewVariationsListType extends Categories implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'variationType' => 'string',
-        'asins' => 'string[]',
+        'relationships' => 'object',
         'marketplaceId' => 'string',
     ];
 
@@ -57,8 +56,7 @@ class NewVariationsListType extends Categories implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'variationType' => null,
-        'asins' => null,
+        'relationships' => null,
         'marketplaceId' => null,
     ];
 
@@ -89,8 +87,7 @@ class NewVariationsListType extends Categories implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'variationType' => 'variationType',
-        'asins' => 'asins',
+        'relationships' => 'relationships',
         'marketplaceId' => 'marketplaceId',
     ];
 
@@ -100,8 +97,7 @@ class NewVariationsListType extends Categories implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'variationType' => 'setVariationType',
-        'asins' => 'setAsins',
+        'relationships' => 'setRelationships',
         'marketplaceId' => 'setMarketplaceId',
     ];
 
@@ -111,8 +107,7 @@ class NewVariationsListType extends Categories implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'variationType' => 'getVariationType',
-        'asins' => 'getAsins',
+        'relationships' => 'getRelationships',
         'marketplaceId' => 'getMarketplaceId',
     ];
 
@@ -172,8 +167,7 @@ class NewVariationsListType extends Categories implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-        $this->container['variationType'] = isset($data['variationType']) ? $data['variationType'] : null;
-        $this->container['asins'] = isset($data['asins']) ? $data['asins'] : null;
+        $this->container['relationships'] = isset($data['relationships']) ? $data['relationships'] : null;
         $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
     }
 
@@ -201,49 +195,25 @@ class NewVariationsListType extends Categories implements ModelInterface, ArrayA
     }
 
     /**
-     * Gets variationType.
-     *
-     * @return string
-     */
-    public function getVariationType()
-    {
-        return $this->container['variationType'];
-    }
-
-    /**
-     * Sets variationType.
-     *
-     * @param string $variationType the variationType variation of the item
-     *
-     * @return $this
-     */
-    public function setVariationType($variationType)
-    {
-        $this->container['variationType'] = $variationType;
-
-        return $this;
-    }
-
-    /**
      * Gets asins.
      *
      * @return string
      */
-    public function getAsins()
+    public function getRelationships()
     {
-        return $this->container['asins'];
+        return $this->container['relationships'];
     }
 
     /**
-     * Sets asins.
+     * Sets relationships.
      *
      * @param string $asins the value variation of the item
      *
      * @return $this
      */
-    public function setAsins($asins)
+    public function setRelationships($relationships)
     {
-        $this->container['asins'] = $asins;
+        $this->container['relationships'] = $relationships;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * NewVariationsListType.
+ * Error.
  *
  * PHP version 5
  *
@@ -22,14 +22,14 @@ use ClouSale\AmazonSellingPartnerAPI\Models\ModelInterface;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
- * NewVariationsListType Class Doc Comment.
+ * Error Class Doc Comment.
  *
 
- * @description Specific variations of the item.
+ * @description Error response returned when the request is unsuccessful.
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class RanksListType extends Categories implements ModelInterface, ArrayAccess
+class Pagination extends Categories implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -38,7 +38,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = 'RanksListType';
+    protected static $swaggerModelName = 'Pagination';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -46,11 +46,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'marketplaceId' => 'string',
-        //'ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewRanks',
-        'classificationRanks'=>'object',
-        'displayGroupRanks'=>'object'
-    ];
+        'nextToken' => 'string'   ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -58,10 +54,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'marketplaceId' => null,
-        'classificationRanks' => null,
-        'displayGroupRanks' => null,
-    ];
+        'nextToken' => null  ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -90,10 +83,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketplaceId' => 'marketplaceId',
-        'classificationRanks' => 'classificationRanks',
-        'displayGroupRanks' => 'displayGroupRanks',
-    ];
+        'nextToken' => 'nextToken'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -101,10 +91,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'marketplaceId' => 'setMarketplaceId',
-        'classificationRanks' => 'setClassificationRanks',
-        'displayGroupRanks' => 'setDisplayGroupRanks',
-    ];
+'nextToken' => 'setNextToken',    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -112,10 +99,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'classificationRanks' => 'getClassificationRanks',
-        'marketplaceId' => 'getMarketplaceId',
-        'displayGroupRanks' => 'getDisplayGroupRanks'
-    ];
+        'nextToken' => 'getNextToken'   ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -173,103 +157,30 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['classificationRanks'] = isset($data['classificationRanks']) ? $data['classificationRanks'] : null;
-        $this->container['displayGroupRanks'] = isset($data['displayGroupRanks']) ? $data['displayGroupRanks'] : null;
-        $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
+        $this->container['nextToken'] = isset($data['nextToken']) ? $data['nextToken'] : null;
     }
 
     /**
-     * Show all the invalid properties with reasons.
-     *
-     * @return array invalid properties with reasons
-     */
-    public function listInvalidProperties()
-    {
-        $invalidProperties = [];
-
-        return $invalidProperties;
-    }
-
-    /**
-     * Validate all the properties in the model
-     * return true if all passed.
-     *
-     * @return bool True if all properties are valid
-     */
-    public function valid()
-    {
-        return 0 === count($this->listInvalidProperties());
-    }
-
-    /**
-     * Gets classificationRanks.
+     * Gets details.
      *
      * @return string
      */
-    public function getClassificationRanks()
+    public function getNextToken()
     {
-        return $this->container['classificationRanks'];
+        return $this->container['nextToken'];
     }
 
     /**
-     * Sets ranks.
+     * Sets details.
      *
-     * @param string $ranks the ranks variation of the item
+     * @param string $details additional information that can help the caller understand or fix the issue
      *
      * @return $this
      */
-    public function setClassificationRanks($classificationRanks)
+    public function setNextToken($nextToken)
     {
-        $this->container['classificationRanks'] = $classificationRanks;
+        $this->container['nextToken'] = $nextToken;
 
-        return $this;
-    }
-
-    /**
-     * Gets displayGroupRanks.
-     *
-     * @return string
-     */
-    public function getDisplayGroupRanks()
-    {
-        return $this->container['displayGroupRanks'];
-    }
-
-    /**
-     * Sets ranks.
-     *
-     * @param string $ranks the ranks variation of the item
-     *
-     * @return $this
-     */
-    public function setDisplayGroupRanks($displayGroupRanks)
-    {
-        $this->container['displayGroupRanks'] = $displayGroupRanks;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets marketplaceId.
-     *
-     * @return string
-     */
-    public function getMarketplaceId()
-    {
-        return $this->container['marketplaceId'];
-    }
-
-    /**
-     * Sets marketplaceId.
-     *
-     * @param string $marketplaceId the marketplaceId variation of the item
-     *
-     * @return $this
-     */
-    public function setMarketplaceId($marketplaceId)
-    {
-        $this->container['marketplaceId'] = $marketplaceId;
         return $this;
     }
 

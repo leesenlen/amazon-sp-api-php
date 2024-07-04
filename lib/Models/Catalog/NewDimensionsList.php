@@ -1,6 +1,6 @@
 <?php
 /**
- * NewVariationsListType.
+ * NewVariationsList.
  *
  * PHP version 5
  *
@@ -18,18 +18,19 @@
 namespace ClouSale\AmazonSellingPartnerAPI\Models\Catalog;
 
 use ArrayAccess;
+use ClouSale\AmazonSellingPartnerAPI\Models\IterableType;
 use ClouSale\AmazonSellingPartnerAPI\Models\ModelInterface;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
- * NewVariationsListType Class Doc Comment.
+ * LanguageList Class Doc Comment.
  *
 
- * @description Specific variations of the item.
+ * @description A list of attributes for the item.
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class RanksListType extends Categories implements ModelInterface, ArrayAccess
+class NewDimensionsList extends Categories implements ModelInterface, ArrayAccess, IterableType
 {
     const DISCRIMINATOR = null;
 
@@ -38,7 +39,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = 'RanksListType';
+    protected static $swaggerModelName = 'NewDimensionsList';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -46,11 +47,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'marketplaceId' => 'string',
-        //'ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewRanks',
-        'classificationRanks'=>'object',
-        'displayGroupRanks'=>'object'
-    ];
+            ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -58,10 +55,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'marketplaceId' => null,
-        'classificationRanks' => null,
-        'displayGroupRanks' => null,
-    ];
+            ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -90,10 +84,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketplaceId' => 'marketplaceId',
-        'classificationRanks' => 'classificationRanks',
-        'displayGroupRanks' => 'displayGroupRanks',
-    ];
+            ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -101,10 +92,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'marketplaceId' => 'setMarketplaceId',
-        'classificationRanks' => 'setClassificationRanks',
-        'displayGroupRanks' => 'setDisplayGroupRanks',
-    ];
+            ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -112,10 +100,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'classificationRanks' => 'getClassificationRanks',
-        'marketplaceId' => 'getMarketplaceId',
-        'displayGroupRanks' => 'getDisplayGroupRanks'
-    ];
+            ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -173,9 +158,6 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['classificationRanks'] = isset($data['classificationRanks']) ? $data['classificationRanks'] : null;
-        $this->container['displayGroupRanks'] = isset($data['displayGroupRanks']) ? $data['displayGroupRanks'] : null;
-        $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
     }
 
     /**
@@ -199,78 +181,6 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
     public function valid()
     {
         return 0 === count($this->listInvalidProperties());
-    }
-
-    /**
-     * Gets classificationRanks.
-     *
-     * @return string
-     */
-    public function getClassificationRanks()
-    {
-        return $this->container['classificationRanks'];
-    }
-
-    /**
-     * Sets ranks.
-     *
-     * @param string $ranks the ranks variation of the item
-     *
-     * @return $this
-     */
-    public function setClassificationRanks($classificationRanks)
-    {
-        $this->container['classificationRanks'] = $classificationRanks;
-
-        return $this;
-    }
-
-    /**
-     * Gets displayGroupRanks.
-     *
-     * @return string
-     */
-    public function getDisplayGroupRanks()
-    {
-        return $this->container['displayGroupRanks'];
-    }
-
-    /**
-     * Sets ranks.
-     *
-     * @param string $ranks the ranks variation of the item
-     *
-     * @return $this
-     */
-    public function setDisplayGroupRanks($displayGroupRanks)
-    {
-        $this->container['displayGroupRanks'] = $displayGroupRanks;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets marketplaceId.
-     *
-     * @return string
-     */
-    public function getMarketplaceId()
-    {
-        return $this->container['marketplaceId'];
-    }
-
-    /**
-     * Sets marketplaceId.
-     *
-     * @param string $marketplaceId the marketplaceId variation of the item
-     *
-     * @return $this
-     */
-    public function setMarketplaceId($marketplaceId)
-    {
-        $this->container['marketplaceId'] = $marketplaceId;
-        return $this;
     }
 
     /**
@@ -341,5 +251,10 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
         }
 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+    }
+
+    public function getSubClass()
+    {
+        return NewDimensionsListType::class;
     }
 }

@@ -45,6 +45,12 @@ class NewAttributes extends Categories implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'bullet_point'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\LanguageList',
         'brand'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\LanguageList',
+        'product_description'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\LanguageList',
+        'variation_theme'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\LanguageList',
+        'generic_keyword'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\LanguageList',
+        'list_price'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewPriceList',
+        'item_type_keyword'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\LanguageList',
+        'product_site_launch_date'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\LanguageList',
         'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList',    ];
 
     /**
@@ -55,6 +61,12 @@ class NewAttributes extends Categories implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'bullet_point' => null,
         'brand' => null,
+        'product_description' => null,
+        'variation_theme' => null,
+        'generic_keyword' => null,
+        'list_price' => null,
+        'item_type_keyword' => null,
+        'product_site_launch_date' => null,
         'errors' => null,    ];
 
     /**
@@ -85,8 +97,13 @@ class NewAttributes extends Categories implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'bullet_point' => 'bullet_point',
-        'bullet_point' => 'bullet_point',
         'brand'=>'brand',
+        'product_description' => 'product_description',
+        'variation_theme' => 'variation_theme',
+        'generic_keyword' => 'generic_keyword',
+        'list_price' => 'list_price',
+        'item_type_keyword' => 'item_type_keyword',
+        'product_site_launch_date' => 'product_site_launch_date',
         'errors' => 'errors',    ];
 
     /**
@@ -97,6 +114,12 @@ class NewAttributes extends Categories implements ModelInterface, ArrayAccess
     protected static $setters = [
         'bullet_point' => 'setBulletPoint',
         'brand'=>'setBrand',
+        'product_description' => 'setProductDescription',
+        'variation_theme' => 'setVariationTheme',
+        'generic_keyword' => 'setGenericKeyword',
+        'list_price' => 'setListPrice',
+        'item_type_keyword' => 'setItemTypeKeyword',
+        'product_site_launch_date' => 'setProductSiteLaunchDate',
         'errors' => 'setErrors',    ];
 
     /**
@@ -107,6 +130,12 @@ class NewAttributes extends Categories implements ModelInterface, ArrayAccess
     protected static $getters = [
         'bullet_point' => 'getBulletPoint',
         'brand'=>'getBrand',
+        'product_description' => 'getProductDescription',
+        'variation_theme' => 'getVariationTheme',
+        'generic_keyword' => 'getGenericKeyword',
+        'list_price' => 'getListPrice',
+        'item_type_keyword' => 'getItemTypeKeyword',
+        'product_site_launch_date' => 'getProductSiteLaunchDate',
         'errors' => 'getErrors',    ];
 
     /**
@@ -167,6 +196,12 @@ class NewAttributes extends Categories implements ModelInterface, ArrayAccess
     {
         $this->container['bullet_point'] = isset($data['bullet_point']) ? $data['bullet_point'] : null;
         $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
+        $this->container['product_description'] = isset($data['product_description']) ? $data['product_description'] : null;
+        $this->container['variation_theme'] = isset($data['variation_theme']) ? $data['variation_theme'] : null;
+        $this->container['generic_keyword'] = isset($data['generic_keyword']) ? $data['generic_keyword'] : null;
+        $this->container['list_price'] = isset($data['list_price']) ? $data['list_price'] : null;
+        $this->container['item_type_keyword'] = isset($data['item_type_keyword']) ? $data['item_type_keyword'] : null;
+        $this->container['product_site_launch_date'] = isset($data['product_site_launch_date']) ? $data['product_site_launch_date'] : null;
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
@@ -198,7 +233,7 @@ class NewAttributes extends Categories implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public function geBulletPoint()
+    public function getBulletPoint()
     {
         return $this->container['bullet_point'];
     }
@@ -236,6 +271,150 @@ class NewAttributes extends Categories implements ModelInterface, ArrayAccess
     public function setBrand($brand)
     {
         $this->container['brand'] = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_description.
+     *
+     * @return array
+     */
+    public function getProductDescription()
+    {
+        return $this->container['product_description'];
+    }
+
+    /**
+     * Sets productDescription.
+     *
+     * @param array $productDescription
+     *
+     * @return $this
+     */
+    public function setProductDescription($productDescription)
+    {
+        $this->container['product_description'] = $productDescription;
+
+        return $this;
+    }
+
+    /**
+     * Gets variation_theme.
+     *
+     * @return array
+     */
+    public function getVariationTheme()
+    {
+        return $this->container['variation_theme'];
+    }
+
+    /**
+     * Sets variationTheme.
+     *
+     * @param array $variationTheme
+     *
+     * @return $this
+     */
+    public function setVariationTheme($variationTheme)
+    {
+        $this->container['variation_theme'] = $variationTheme;
+
+        return $this;
+    }
+
+    /**
+     * Gets generic_keyword.
+     *
+     * @return array
+     */
+    public function getGenericKeyword()
+    {
+        return $this->container['generic_keyword'];
+    }
+
+    /**
+     * Sets genericKeyword.
+     *
+     * @param array $genericKeyword
+     *
+     * @return $this
+     */
+    public function setGenericKeyword($genericKeyword)
+    {
+        $this->container['generic_keyword'] = $genericKeyword;
+
+        return $this;
+    }
+
+    /**
+     * Gets list_price.
+     *
+     * @return array
+     */
+    public function getListPrice()
+    {
+        return $this->container['list_price'];
+    }
+
+    /**
+     * Sets listPrice.
+     *
+     * @param array $listPrice
+     *
+     * @return $this
+     */
+    public function setListPrice($listPrice)
+    {
+        $this->container['list_price'] = $listPrice;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_type_keyword.
+     *
+     * @return array
+     */
+    public function getItemTypeKeyword()
+    {
+        return $this->container['item_type_keyword'];
+    }
+
+    /**
+     * Sets itemTypeKeyword.
+     *
+     * @param array $itemTypeKeyword
+     *
+     * @return $this
+     */
+    public function setItemTypeKeyword($itemTypeKeyword)
+    {
+        $this->container['item_type_keyword'] = $itemTypeKeyword;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_site_launch_date.
+     *
+     * @return array
+     */
+    public function getProductSiteLaunchDate()
+    {
+        return $this->container['product_site_launch_date'];
+    }
+
+    /**
+     * Sets productSiteLaunchDate.
+     *
+     * @param array $productSiteLaunchDate
+     *
+     * @return $this
+     */
+    public function setProductSiteLaunchDate($productSiteLaunchDate)
+    {
+        $this->container['product_site_launch_date'] = $productSiteLaunchDate;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * NewVariationsListType.
+ * Image.
  *
  * PHP version 5
  *
@@ -22,14 +22,14 @@ use ClouSale\AmazonSellingPartnerAPI\Models\ModelInterface;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
- * NewVariationsListType Class Doc Comment.
+ * Image Class Doc Comment.
  *
 
- * @description Specific variations of the item.
+ * @description The image attribute of the item.
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class RanksListType extends Categories implements ModelInterface, ArrayAccess
+class NewIdentifiersType extends Categories implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -38,7 +38,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = 'RanksListType';
+    protected static $swaggerModelName = 'NewIdentifiersType';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -46,10 +46,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'marketplaceId' => 'string',
-        //'ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewRanks',
-        'classificationRanks'=>'object',
-        'displayGroupRanks'=>'object'
+        'identifier'=>'string',
+        'identifierType' => 'string',
     ];
 
     /**
@@ -58,9 +56,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'marketplaceId' => null,
-        'classificationRanks' => null,
-        'displayGroupRanks' => null,
+        'identifier'=>null,
+        'identifierType' => null,
     ];
 
     /**
@@ -90,9 +87,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketplaceId' => 'marketplaceId',
-        'classificationRanks' => 'classificationRanks',
-        'displayGroupRanks' => 'displayGroupRanks',
+        'identifier'=>'identifier',
+        'identifierType' => 'identifierType',
     ];
 
     /**
@@ -101,9 +97,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'marketplaceId' => 'setMarketplaceId',
-        'classificationRanks' => 'setClassificationRanks',
-        'displayGroupRanks' => 'setDisplayGroupRanks',
+        'identifier' => 'setIdentifier',
+        'identifierType' => 'setIdentifierType',
     ];
 
     /**
@@ -112,9 +107,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'classificationRanks' => 'getClassificationRanks',
-        'marketplaceId' => 'getMarketplaceId',
-        'displayGroupRanks' => 'getDisplayGroupRanks'
+        'identifier' => 'getIdentifier',
+        'identifierType' => 'getIdentifierType',
     ];
 
     /**
@@ -173,9 +167,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['classificationRanks'] = isset($data['classificationRanks']) ? $data['classificationRanks'] : null;
-        $this->container['displayGroupRanks'] = isset($data['displayGroupRanks']) ? $data['displayGroupRanks'] : null;
-        $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
+        $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
+        $this->container['identifierType'] = isset($data['identifierType']) ? $data['identifierType'] : null;
     }
 
     /**
@@ -202,74 +195,49 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets classificationRanks.
+     * Gets identifier.
      *
      * @return string
      */
-    public function getClassificationRanks()
+    public function getIdentifier()
     {
-        return $this->container['classificationRanks'];
+        return $this->container['identifier'];
     }
 
     /**
-     * Sets ranks.
+     * Sets identifier.
      *
-     * @param string $ranks the ranks variation of the item
+     * @param string $identifier  attribute of the item
      *
      * @return $this
      */
-    public function setClassificationRanks($classificationRanks)
+    public function setIdentifier($identifier)
     {
-        $this->container['classificationRanks'] = $classificationRanks;
+        $this->container['identifier'] = $identifier;
 
         return $this;
     }
-
     /**
-     * Gets displayGroupRanks.
+     * Gets identifierType.
      *
      * @return string
      */
-    public function getDisplayGroupRanks()
+    public function getIdentifierType()
     {
-        return $this->container['displayGroupRanks'];
+        return $this->container['identifierType'];
     }
 
     /**
-     * Sets ranks.
+     * Sets identifierType.
      *
-     * @param string $ranks the ranks variation of the item
+     * @param string $identifierType the attribute of the item
      *
      * @return $this
      */
-    public function setDisplayGroupRanks($displayGroupRanks)
+    public function setIdentifierType($identifierType)
     {
-        $this->container['displayGroupRanks'] = $displayGroupRanks;
+        $this->container['identifierType'] = $identifierType;
 
-        return $this;
-    }
-
-
-    /**
-     * Gets marketplaceId.
-     *
-     * @return string
-     */
-    public function getMarketplaceId()
-    {
-        return $this->container['marketplaceId'];
-    }
-
-    /**
-     * Sets marketplaceId.
-     *
-     * @param string $marketplaceId the marketplaceId variation of the item
-     *
-     * @return $this
-     */
-    public function setMarketplaceId($marketplaceId)
-    {
-        $this->container['marketplaceId'] = $marketplaceId;
         return $this;
     }
 

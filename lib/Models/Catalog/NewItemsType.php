@@ -26,7 +26,7 @@ use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class GetCatalogNewItemResponse extends Categories implements ModelInterface, ArrayAccess
+class NewItemsType extends Categories implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -35,7 +35,7 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      *
      * @var string
      */
-    protected static $swaggerModelName = 'GetCatalogNewItemResponse';
+    protected static $swaggerModelName = 'NewItemsType';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -45,10 +45,12 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     protected static $swaggerTypes = [
         'asin' => 'string',
         'attributes'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewAttributes',
-        'variations'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewVariationsList',
-        'summaries' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\SummariesList', 
+        'dimensions'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewDimensionsList',
+        'productTypes'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewProductTypes',
+        'relationships'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewVariationsList',
+        'summaries' =>'object',
         'images' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ImagesList',
-        'ranks' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\RanksList',
+        'salesRanks' =>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\RanksList',
         'identifiers'=>'\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemIdentifiers',
         'errors' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ErrorList',];
 
@@ -60,10 +62,12 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     protected static $swaggerFormats = [
         'asin' => null,
         'attributes'=>null,
-        'variations'=>null,
+        'dimensions'=>null,
+        'productTypes'=>null,
+        'relationships'=>null,
         'summaries'=>null,
         'images'=>null,
-        'ranks'=>null,
+        'salesRanks'=>null,
         'identifiers'=>null,
         'errors' => null,    ];
 
@@ -96,10 +100,12 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     protected static $attributeMap = [
         'asin' => 'asin',
         'attributes'=>'attributes',
-        'variations'=>'variations',
+        'dimensions'=>'dimensions',
+        'productTypes'=>'productTypes',
+        'relationships'=>'relationships',
         'summaries'=>'summaries',
         'images'=>'images',
-        'ranks'=>'ranks',
+        'salesRanks'=>'salesRanks',
         'identifiers'=>'identifiers',
         'errors' => 'errors',    ];
 
@@ -111,10 +117,12 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     protected static $setters = [
         'asin' => 'setAsin',
         'attributes'=>'setAttributes',
-        'variations'=>'setVariations',
+        'dimensions'=>'setDimensions',
+        'productTypes'=>'setProductTypes',
+        'relationships'=>'setRelationships',
         'summaries'=>'setSummaries',
         'images'=>'setImages',
-        'ranks'=>'setRanks',
+        'salesRanks'=>'setSalesRanks',
         'identifiers'=>'setIdentifiers',
         'errors' => 'setErrors',    ];
 
@@ -126,10 +134,12 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     protected static $getters = [
         'asin' => 'getAsin',
         'attributes'=>'getAttributes',
-        'variations'=>'getVariations',
+        'dimensions'=>'getDimensions',
+        'productTypes'=>'getProductTypes',
+        'relationships'=>'getRelationships',
         'summaries'=>'getSummaries',
         'images'=>'getImages',
-        'ranks'=>'setRanks',
+        'salesRanks'=>'setSalesRanks',
         'identifiers'=>'getIdentifiers',
         'errors' => 'getErrors',    ];
 
@@ -191,10 +201,12 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
     {
         $this->container['asin'] = isset($data['asin']) ? $data['asin'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
-        $this->container['variations'] = isset($data['variations']) ? $data['variations'] : null;
+        $this->container['dimensions'] = isset($data['dimensions']) ? $data['dimensions'] : null;
+        $this->container['productTypes'] = isset($data['productTypes']) ? $data['productTypes'] : null;
+        $this->container['relationships'] = isset($data['relationships']) ? $data['relationships'] : null;
         $this->container['summaries'] = isset($data['summaries']) ? $data['summaries'] : null;
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
-        $this->container['ranks'] = isset($data['ranks']) ? $data['ranks'] : null;
+        $this->container['salesRanks'] = isset($data['salesRanks']) ? $data['salesRanks'] : null;
         $this->container['identifiers'] = isset($data['identifiers']) ? $data['identifiers'] : null;
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
@@ -268,26 +280,72 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
 
         return $this;
     }
-     /**
-     * Gets variations.
+    /**
+     * Gets dimensions.
      *
      * @return obj
      */
-    public function getVariations()
+    public function getDimensions()
     {
-        return $this->container['variations'];
+        return $this->container['dimensions'];
     }
 
     /**
-     * Sets variations.
+     * Sets dimensions.
      *
-     * @param string $variations the variations variation of the item
+     * @param string $dimensions
      *
      * @return $this
      */
-    public function setVariations($variations)
+    public function setDimensions($dimensions)
     {
-        $this->container['variations'] = $variations;
+        $this->container['dimensions'] = $dimensions;
+
+        return $this;
+    }
+     /**
+     * Gets relationships.
+     *
+     * @return obj
+     */
+    public function getRelationships()
+    {
+        return $this->container['relationships'];
+    }
+
+    /**
+     * Sets productTypes.
+     *
+     * @param string $dimensions
+     *
+     * @return $this
+     */
+    public function setProductTypes($productTypes)
+    {
+        $this->container['product_types'] = $productTypes;
+
+        return $this;
+    }
+     /**
+     * Gets product_types.
+     *
+     * @return obj
+     */
+    public function getProductTypes()
+    {
+        return $this->container['product_types'];
+    }
+
+    /**
+     * Sets relationships.
+     *
+     * @param string $relationships the relationships variation of the item
+     *
+     * @return $this
+     */
+    public function setRelationships($relationships)
+    {
+        $this->container['relationships'] = $relationships;
 
         return $this;
     }
@@ -345,9 +403,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      *
      * @return string
      */
-    public function getRanks()
+    public function getSalesRanks()
     {
-        return $this->container['ranks'];
+        return $this->container['salesRanks'];
     }
 
     /**
@@ -357,9 +415,9 @@ class GetCatalogNewItemResponse extends Categories implements ModelInterface, Ar
      *
      * @return $this
      */
-    public function setRanks($ranks)
+    public function setSalesRanks($salesRanks)
     {
-        $this->container['ranks'] = $ranks;
+        $this->container['salesRanks'] = $salesRanks;
 
         return $this;
     }

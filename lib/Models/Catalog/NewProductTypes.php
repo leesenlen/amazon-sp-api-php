@@ -1,6 +1,6 @@
 <?php
 /**
- * NewVariationsListType.
+ * GetCatalogItemResponse.
  *
  * PHP version 5
  *
@@ -22,14 +22,11 @@ use ClouSale\AmazonSellingPartnerAPI\Models\ModelInterface;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
- * NewVariationsListType Class Doc Comment.
- *
-
- * @description Specific variations of the item.
+ * GetCatalogItemResponse Class Doc Comment.
  *
  * @author   Stefan Neuhaus / ClouSale
  */
-class RanksListType extends Categories implements ModelInterface, ArrayAccess
+class NewProductTypes extends Categories implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -38,7 +35,7 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = 'RanksListType';
+    protected static $swaggerModelName = 'NewProductTypes';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -46,10 +43,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'marketplaceId' => 'string',
-        //'ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\NewRanks',
-        'classificationRanks'=>'object',
-        'displayGroupRanks'=>'object'
+        'marketplace_id'=>'string',
+        'product_type'=>'string',
     ];
 
     /**
@@ -58,9 +53,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'marketplaceId' => null,
-        'classificationRanks' => null,
-        'displayGroupRanks' => null,
+        'marketplace_id' => null,
+        'product_type'=>null,
     ];
 
     /**
@@ -90,10 +84,9 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketplaceId' => 'marketplaceId',
-        'classificationRanks' => 'classificationRanks',
-        'displayGroupRanks' => 'displayGroupRanks',
-    ];
+        'marketplace_id' => 'marketplace_id',
+        'product_type' => 'product_type',
+       ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -101,9 +94,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'marketplaceId' => 'setMarketplaceId',
-        'classificationRanks' => 'setClassificationRanks',
-        'displayGroupRanks' => 'setDisplayGroupRanks',
+        'marketplace_id' => 'setMarketplaceId',
+        'product_type' => 'setProductType',
     ];
 
     /**
@@ -112,9 +104,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'classificationRanks' => 'getClassificationRanks',
-        'marketplaceId' => 'getMarketplaceId',
-        'displayGroupRanks' => 'getDisplayGroupRanks'
+        'marketplace_id' => 'getMarketplaceId',
+        'product_type' => 'getProductType',
     ];
 
     /**
@@ -173,9 +164,8 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['classificationRanks'] = isset($data['classificationRanks']) ? $data['classificationRanks'] : null;
-        $this->container['displayGroupRanks'] = isset($data['displayGroupRanks']) ? $data['displayGroupRanks'] : null;
-        $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
+        $this->container['marketplace_id'] = isset($data['marketplace_id']) ? $data['marketplace_id'] : null;
+        $this->container['product_type'] = isset($data['product_type']) ? $data['product_type'] : null;
     }
 
     /**
@@ -202,74 +192,50 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets classificationRanks.
+     * Gets marketplace_id.
      *
-     * @return string
-     */
-    public function getClassificationRanks()
-    {
-        return $this->container['classificationRanks'];
-    }
-
-    /**
-     * Sets ranks.
-     *
-     * @param string $ranks the ranks variation of the item
-     *
-     * @return $this
-     */
-    public function setClassificationRanks($classificationRanks)
-    {
-        $this->container['classificationRanks'] = $classificationRanks;
-
-        return $this;
-    }
-
-    /**
-     * Gets displayGroupRanks.
-     *
-     * @return string
-     */
-    public function getDisplayGroupRanks()
-    {
-        return $this->container['displayGroupRanks'];
-    }
-
-    /**
-     * Sets ranks.
-     *
-     * @param string $ranks the ranks variation of the item
-     *
-     * @return $this
-     */
-    public function setDisplayGroupRanks($displayGroupRanks)
-    {
-        $this->container['displayGroupRanks'] = $displayGroupRanks;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets marketplaceId.
-     *
-     * @return string
+     * @return array
      */
     public function getMarketplaceId()
     {
-        return $this->container['marketplaceId'];
+        return $this->container['marketplace_id'];
     }
 
     /**
      * Sets marketplaceId.
      *
-     * @param string $marketplaceId the marketplaceId variation of the item
+     * @param string $bulletPoint the bulletPoint variation of the item
      *
      * @return $this
      */
     public function setMarketplaceId($marketplaceId)
     {
-        $this->container['marketplaceId'] = $marketplaceId;
+        $this->container['marketplace_id'] = $marketplaceId;
+
+        return $this;
+    }
+
+     /**
+     * Gets product_type.
+     *
+     * @return array
+     */
+    public function getProductType()
+    {
+        return $this->container['product_type'];
+    }
+
+    /**
+     * Sets productType.
+     *
+     * @param string $bulletPoint the bulletPoint variation of the item
+     *
+     * @return $this
+     */
+    public function setProductType($productType)
+    {
+        $this->container['product_type'] = $productType;
+
         return $this;
     }
 
