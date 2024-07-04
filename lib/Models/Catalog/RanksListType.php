@@ -221,7 +221,6 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
     public function setClassificationRanks($classificationRanks)
     {
         $this->container['classificationRanks'] = $classificationRanks;
-
         return $this;
     }
 
@@ -248,8 +247,6 @@ class RanksListType extends Categories implements ModelInterface, ArrayAccess
 
         return $this;
     }
-
-
     /**
      * Gets marketplaceId.
      *

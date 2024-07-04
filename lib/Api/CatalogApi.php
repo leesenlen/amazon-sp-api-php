@@ -190,7 +190,6 @@ class CatalogApi
     public function getNewCatalogItem($marketplace_id, $asin, $includedData)
     {
         list($response) = $this->getNewCatalogItemWithHttpInfo($marketplace_id, $asin, $includedData);
-
         return $response;
     }
 
@@ -256,7 +255,6 @@ class CatalogApi
 
         return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'GET', $httpBody);
     }
-
     /**
      * Operation listCatalogCategories.
      *
